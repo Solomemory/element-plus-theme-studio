@@ -38,6 +38,19 @@
         <el-tooltip :content="isDark ? t('light') : t('dark')" placement="bottom">
           <el-button :icon="isDark ? Sunny : Moon" circle @click="isDark = !isDark" />
         </el-tooltip>
+        <el-tooltip :content="t('githubTooltip')" placement="bottom">
+          <el-button
+            class="github-link-button"
+            :icon="LinkIcon"
+            tag="a"
+            :href="githubRepositoryUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-label="t('githubRepository')"
+          >
+            GitHub
+          </el-button>
+        </el-tooltip>
         <el-button :icon="Upload" @click="fileInput?.click()">{{ t('importJson') }}</el-button>
         <el-button :icon="Download" @click="exportJson">{{ t('exportJson') }}</el-button>
         <el-button :icon="MagicStick" @click="handleRandomTheme">{{ t('randomTheme') }}</el-button>
@@ -71,7 +84,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { ElMessage } from 'element-plus'
-import { Box, Brush, Download, MagicStick, Moon, RefreshLeft, Sunny, Upload } from '@element-plus/icons-vue'
+import { Box, Brush, Download, Link as LinkIcon, MagicStick, Moon, RefreshLeft, Sunny, Upload } from '@element-plus/icons-vue'
 import TokenEditor from '../components/TokenEditor.vue'
 import PreviewPane from '../components/PreviewPane.vue'
 import { useI18n } from '../i18n'
@@ -101,6 +114,7 @@ const elementPlusMetadata = ref<ElementPlusMetadata | null>(null)
 const customPresetId = 'custom'
 const selectedPresetId = ref(defaultPresetId)
 const isStaticDemo = import.meta.env.VITE_STATIC_DEMO === 'true'
+const githubRepositoryUrl = 'https://github.com/Solomemory/element-plus-theme-studio'
 const resolvedElementPlusVersion = computed(() => elementPlusMetadata.value?.version ?? tokens.elementPlusVersion)
 
 const jsonText = computed(() => JSON.stringify(tokens, null, 2))
