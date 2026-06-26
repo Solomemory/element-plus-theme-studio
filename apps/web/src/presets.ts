@@ -11,6 +11,139 @@ export interface ThemePreset {
   tokens: unknown
 }
 
+const glassAuroraLightCss = String.raw`
+.studio-shell {
+  background:
+    linear-gradient(135deg, rgba(236, 253, 245, 0.96) 0%, rgba(239, 246, 255, 0.94) 42%, rgba(255, 247, 237, 0.92) 100%);
+}
+
+.studio-header,
+.editor-panel,
+.preview-panel,
+.preview-card,
+.el-card,
+.el-dialog,
+.el-message-box,
+.el-drawer,
+.el-popover.el-popper,
+.el-dropdown__popper .el-scrollbar,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-cascader__dropdown.el-popper {
+  border-color: rgba(148, 163, 184, 0.34);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 52px rgba(15, 23, 42, 0.10);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.studio-header {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.brand-mark,
+.token-swatch,
+.stat-card {
+  border-color: rgba(14, 165, 233, 0.28);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number,
+.el-checkbox-button__inner,
+.el-radio-button__inner {
+  background: rgba(255, 255, 255, 0.58);
+  border-color: rgba(148, 163, 184, 0.36);
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.28) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.el-table,
+.el-table__inner-wrapper,
+.el-table th.el-table__cell,
+.el-table tr,
+.el-table td.el-table__cell {
+  background-color: transparent;
+}
+
+.el-table th.el-table__cell {
+  background: rgba(248, 250, 252, 0.72);
+}
+
+.el-alert,
+.el-tag,
+.el-tabs__nav-wrap::after,
+.el-menu,
+.sample-menu {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+`
+
+const glassAuroraDarkCss = String.raw`
+.dark .studio-shell {
+  background:
+    linear-gradient(135deg, rgba(2, 6, 23, 0.98) 0%, rgba(15, 23, 42, 0.96) 48%, rgba(22, 78, 99, 0.86) 100%);
+}
+
+.dark .studio-header,
+.dark .editor-panel,
+.dark .preview-panel,
+.dark .preview-card,
+.dark .el-card,
+.dark .el-dialog,
+.dark .el-message-box,
+.dark .el-drawer,
+.dark .el-popover.el-popper,
+.dark .el-dropdown__popper .el-scrollbar,
+.dark .el-select__popper.el-popper,
+.dark .el-picker__popper.el-popper,
+.dark .el-cascader__dropdown.el-popper {
+  border-color: rgba(125, 211, 252, 0.18);
+  background: rgba(15, 23, 42, 0.66);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.dark .brand-mark,
+.dark .token-swatch,
+.dark .stat-card {
+  border-color: rgba(125, 211, 252, 0.22);
+  background: rgba(15, 23, 42, 0.58);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dark .el-input__wrapper,
+.dark .el-textarea__inner,
+.dark .el-select__wrapper,
+.dark .el-input-number,
+.dark .el-checkbox-button__inner,
+.dark .el-radio-button__inner {
+  background: rgba(15, 23, 42, 0.56);
+  border-color: rgba(125, 211, 252, 0.16);
+  box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.14) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .el-table,
+.dark .el-table__inner-wrapper,
+.dark .el-table th.el-table__cell,
+.dark .el-table tr,
+.dark .el-table td.el-table__cell {
+  background-color: transparent;
+}
+
+.dark .el-table th.el-table__cell {
+  background: rgba(15, 23, 42, 0.68);
+}
+`
+
 export const themePresets: ThemePreset[] = [
   {
     id: 'aura-blue',
@@ -20,6 +153,101 @@ export const themePresets: ThemePreset[] = [
     },
     swatches: ['#2563eb', '#16a34a', '#f8fafc'],
     tokens: cloneThemeTokens(DEFAULT_TOKENS),
+  },
+  {
+    id: 'glass-aurora',
+    label: {
+      'zh-CN': '极光玻璃',
+      'en-US': 'Glass Aurora',
+    },
+    swatches: ['#0891b2', '#10b981', '#f59e0b'],
+    tokens: {
+      name: 'Glass Aurora',
+      packageName: '@local/element-plus-theme-glass-aurora',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#020617',
+        primary: '#0891b2',
+        success: '#10b981',
+        warning: '#f59e0b',
+        danger: '#e11d48',
+        error: '#e11d48',
+        info: '#64748b',
+      },
+      radius: {
+        base: '14px',
+        small: '10px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#0f172a',
+        regular: '#334155',
+        secondary: '#64748b',
+        placeholder: '#94a3b8',
+        disabled: '#cbd5e1',
+      },
+      border: {
+        base: '#bae6fd',
+        light: '#d8f3fd',
+        lighter: '#eaf9ff',
+        extraLight: '#f5fdff',
+        dark: '#7dd3fc',
+        darker: '#38bdf8',
+        width: '1px',
+        style: 'solid',
+        hover: '#06b6d4',
+      },
+      fill: {
+        base: '#ecfeff',
+        light: '#f0fdfa',
+        lighter: '#f8fafc',
+        extraLight: '#ffffff',
+        dark: '#cffafe',
+        darker: '#a5f3fc',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#effaf9',
+        base: '#ffffff',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: '0 18px 52px rgba(8, 145, 178, 0.12), 0 8px 24px rgba(15, 23, 42, 0.08)',
+        light: '0 0 18px rgba(8, 145, 178, 0.14)',
+        lighter: '0 0 8px rgba(8, 145, 178, 0.12)',
+        dark: '0 24px 72px rgba(8, 145, 178, 0.18), 0 12px 32px rgba(15, 23, 42, 0.16)',
+      },
+      typography: {
+        fontFamily:
+          "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '20px',
+        large: '18px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '40px',
+        default: '32px',
+        small: '24px',
+      },
+      overlay: {
+        base: 'rgba(15, 23, 42, 0.72)',
+        light: 'rgba(15, 23, 42, 0.58)',
+        lighter: 'rgba(15, 23, 42, 0.38)',
+      },
+      mask: {
+        base: 'rgba(255, 255, 255, 0.72)',
+        extraLight: 'rgba(255, 255, 255, 0.28)',
+      },
+      cssOverrides: {
+        light: glassAuroraLightCss,
+        dark: glassAuroraDarkCss,
+      },
+    },
   },
   {
     id: 'vben-admin',
