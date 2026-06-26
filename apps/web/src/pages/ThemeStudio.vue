@@ -100,6 +100,7 @@ const isDark = ref(false)
 const elementPlusMetadata = ref<ElementPlusMetadata | null>(null)
 const customPresetId = 'custom'
 const selectedPresetId = ref(defaultPresetId)
+const isStaticDemo = import.meta.env.VITE_STATIC_DEMO === 'true'
 const resolvedElementPlusVersion = computed(() => elementPlusMetadata.value?.version ?? tokens.elementPlusVersion)
 
 const jsonText = computed(() => JSON.stringify(tokens, null, 2))
@@ -208,6 +209,12 @@ function clearGeneratedResult(): void {
 
 async function generateTheme(): Promise<void> {
   errorMessage.value = ''
+
+  if (isStaticDemo) {
+    errorMessage.value = t('staticDemoNoBuild')
+    return
+  }
+
   generating.value = true
 
   try {
@@ -244,6 +251,17 @@ async function generateTheme(): Promise<void> {
 }
 
 async function loadElementPlusMetadata(): Promise<void> {
+  if (isStaticDemo) {
+    elementPlusMetadata.value = {
+      requestedVersion: tokens.elementPlusVersion,
+      version: tokens.elementPlusVersion,
+      supportsDarkCssVars: true,
+      variableCount: 0,
+      variables: [],
+    }
+    return
+  }
+
   try {
     const response = await fetch(`/api/element-plus/metadata?version=${encodeURIComponent(tokens.elementPlusVersion)}`)
     if (!response.ok) {

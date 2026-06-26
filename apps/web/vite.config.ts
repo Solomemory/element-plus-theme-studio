@@ -9,6 +9,7 @@ import { ThemeValidationError } from '../../packages/theme-builder/src/tokens.ts
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const workspaceRoot = path.resolve(__dirname, '../..')
+const publicBase = process.env.VITE_BASE_PATH || '/'
 
 function themeBuilderApi(): Plugin {
   return {
@@ -99,6 +100,7 @@ async function readRequestBody(req: NodeJS.ReadableStream): Promise<string> {
 }
 
 export default defineConfig({
+  base: publicBase,
   plugins: [vue(), themeBuilderApi()],
   resolve: {
     alias: {
