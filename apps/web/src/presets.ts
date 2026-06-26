@@ -16,38 +16,37 @@ const glassAuroraLightCss = String.raw`
   position: relative;
   isolation: isolate;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.74) 0%, rgba(247, 250, 255, 0.52) 42%, rgba(255, 255, 255, 0.66) 100%),
-    conic-gradient(
-      from 218deg at 50% 52%,
-      #7c3aed 0deg,
-      #2563eb 54deg,
-      #06b6d4 112deg,
-      #22c55e 166deg,
-      #facc15 214deg,
-      #fb7185 276deg,
-      #a855f7 326deg,
-      #7c3aed 360deg
-    );
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
 }
 
 .studio-shell::before {
+  content: '';
   position: absolute;
-  inset: 72px 8% 28px;
+  inset: 88px 18px 18px;
   z-index: 0;
   pointer-events: none;
   border-radius: 34px;
   background:
     linear-gradient(
-      128deg,
+      118deg,
+      rgba(255, 255, 255, 0.26) 0%,
+      rgba(255, 255, 255, 0.68) 44%,
+      rgba(255, 255, 255, 0.18) 100%
+    ),
+    linear-gradient(
+      135deg,
       rgba(124, 58, 237, 0.72) 0%,
-      rgba(37, 99, 235, 0.64) 23%,
-      rgba(6, 182, 212, 0.58) 42%,
-      rgba(34, 197, 94, 0.48) 58%,
-      rgba(250, 204, 21, 0.60) 74%,
+      rgba(37, 99, 235, 0.66) 23%,
+      rgba(6, 182, 212, 0.54) 42%,
+      rgba(34, 197, 94, 0.44) 58%,
+      rgba(250, 204, 21, 0.56) 74%,
       rgba(251, 113, 133, 0.64) 100%
     );
   filter: saturate(112%);
-  opacity: 0.84;
+  opacity: 0.92;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.54),
+    0 34px 82px rgba(91, 124, 250, 0.18);
 }
 
 .studio-header,
@@ -75,7 +74,7 @@ const glassAuroraLightCss = String.raw`
 .el-picker__popper.el-popper,
 .el-cascader__dropdown.el-popper {
   border-color: rgba(255, 255, 255, 0.62);
-  background: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.58);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.86),
     0 18px 48px rgba(91, 124, 250, 0.10),
@@ -85,7 +84,7 @@ const glassAuroraLightCss = String.raw`
 }
 
 .studio-header {
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.62);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.62), 0 10px 30px rgba(31, 35, 52, 0.05);
 }
 
@@ -105,7 +104,7 @@ const glassAuroraLightCss = String.raw`
 .carousel-panel,
 .sample-anchor {
   border-color: rgba(255, 255, 255, 0.68);
-  background: rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.50);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 12px 28px rgba(31, 35, 52, 0.06);
@@ -122,7 +121,7 @@ const glassAuroraLightCss = String.raw`
 .el-segmented,
 .el-upload-dragger {
   border-color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.62);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 8px 22px rgba(31, 35, 52, 0.05);
@@ -135,7 +134,7 @@ const glassAuroraLightCss = String.raw`
 .el-alert {
   border-color: rgba(255, 255, 255, 0.72);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.40);
+  background: rgba(255, 255, 255, 0.64);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.90),
     0 10px 24px rgba(31, 35, 52, 0.06);
@@ -143,9 +142,80 @@ const glassAuroraLightCss = String.raw`
   -webkit-backdrop-filter: blur(18px) saturate(125%);
 }
 
-.el-button--primary:not(.is-link):not(.is-text) {
+.el-button--primary:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
   border-color: rgba(91, 124, 250, 0.34);
-  background: rgba(91, 124, 250, 0.82);
+  background: rgba(91, 124, 250, 0.86);
+}
+
+.el-button--success:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
+  border-color: rgba(40, 199, 111, 0.34);
+  background: rgba(40, 199, 111, 0.86);
+}
+
+.el-button--warning:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #3b2a08;
+  border-color: rgba(245, 165, 36, 0.42);
+  background: rgba(245, 165, 36, 0.88);
+}
+
+.el-button--danger:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
+  border-color: rgba(243, 18, 96, 0.34);
+  background: rgba(243, 18, 96, 0.86);
+}
+
+.el-button--info:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
+  border-color: rgba(139, 143, 163, 0.34);
+  background: rgba(139, 143, 163, 0.86);
+}
+
+.el-button.is-plain:not(.is-link):not(.is-text) {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.el-button--primary.is-plain:not(.is-link):not(.is-text) {
+  color: #3f63f3;
+  border-color: rgba(91, 124, 250, 0.34);
+  background: rgba(91, 124, 250, 0.13);
+}
+
+.el-alert--success.is-light,
+.el-tag--success {
+  color: #137a46;
+  border-color: rgba(40, 199, 111, 0.24);
+  background: rgba(40, 199, 111, 0.16);
+}
+
+.el-alert--warning.is-light,
+.el-tag--warning {
+  color: #8a5a00;
+  border-color: rgba(245, 165, 36, 0.28);
+  background: rgba(245, 165, 36, 0.18);
+}
+
+.el-alert--error.is-light,
+.el-tag--danger {
+  color: #b20d47;
+  border-color: rgba(243, 18, 96, 0.24);
+  background: rgba(243, 18, 96, 0.15);
+}
+
+.el-alert--info.is-light,
+.el-tag--info {
+  color: #5f6476;
+  border-color: rgba(139, 143, 163, 0.22);
+  background: rgba(139, 143, 163, 0.14);
+}
+
+.el-alert__title {
+  color: inherit;
+}
+
+.el-alert {
+  border-radius: 16px;
 }
 
 .el-button:not(.is-text):not(.is-link):hover,
@@ -196,6 +266,20 @@ const glassAuroraLightCss = String.raw`
 .token-row label {
   color: #6f7382;
 }
+
+.panel-section.first,
+.panel-section + .panel-section {
+  border-color: rgba(255, 255, 255, 0.56);
+}
+
+.guide-code,
+.css-compat-panel {
+  border-color: rgba(255, 255, 255, 0.64);
+  background: rgba(255, 255, 255, 0.46);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
 `
 
 const glassAuroraDarkCss = String.raw`
@@ -203,38 +287,37 @@ const glassAuroraDarkCss = String.raw`
   position: relative;
   isolation: isolate;
   background:
-    linear-gradient(145deg, rgba(8, 10, 20, 0.74) 0%, rgba(15, 18, 32, 0.48) 46%, rgba(18, 14, 24, 0.72) 100%),
-    conic-gradient(
-      from 218deg at 50% 52%,
-      #6d28d9 0deg,
-      #1d4ed8 54deg,
-      #0891b2 112deg,
-      #15803d 166deg,
-      #ca8a04 214deg,
-      #be123c 276deg,
-      #7e22ce 326deg,
-      #6d28d9 360deg
-    );
+    linear-gradient(180deg, #0f111a 0%, #161a27 100%);
 }
 
 .dark .studio-shell::before {
+  content: '';
   position: absolute;
-  inset: 72px 8% 28px;
+  inset: 88px 18px 18px;
   z-index: 0;
   pointer-events: none;
   border-radius: 34px;
   background:
     linear-gradient(
-      128deg,
-      rgba(124, 58, 237, 0.56) 0%,
+      118deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.18) 44%,
+      rgba(255, 255, 255, 0.05) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.52) 0%,
       rgba(37, 99, 235, 0.46) 22%,
-      rgba(6, 182, 212, 0.38) 42%,
-      rgba(34, 197, 94, 0.28) 58%,
-      rgba(250, 204, 21, 0.32) 74%,
-      rgba(251, 113, 133, 0.42) 100%
+      rgba(6, 182, 212, 0.34) 42%,
+      rgba(34, 197, 94, 0.24) 58%,
+      rgba(250, 204, 21, 0.28) 74%,
+      rgba(251, 113, 133, 0.38) 100%
     );
   filter: saturate(112%);
-  opacity: 0.72;
+  opacity: 0.84;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 34px 82px rgba(0, 0, 0, 0.30);
 }
 
 .dark .studio-header,
@@ -262,7 +345,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-picker__popper.el-popper,
 .dark .el-cascader__dropdown.el-popper {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(24, 26, 39, 0.46);
+  background: rgba(24, 26, 39, 0.58);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 22px 58px rgba(0, 0, 0, 0.30),
@@ -287,7 +370,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .carousel-panel,
 .dark .sample-anchor {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(24, 26, 39, 0.36);
+  background: rgba(24, 26, 39, 0.48);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.11),
     0 14px 32px rgba(0, 0, 0, 0.22);
@@ -304,7 +387,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-segmented,
 .dark .el-upload-dragger {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(24, 26, 39, 0.38);
+  background: rgba(24, 26, 39, 0.54);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.10),
     0 10px 26px rgba(0, 0, 0, 0.20);
@@ -317,7 +400,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-alert {
   border-color: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.10);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 10px 26px rgba(0, 0, 0, 0.22);
@@ -325,9 +408,80 @@ const glassAuroraDarkCss = String.raw`
   -webkit-backdrop-filter: blur(20px) saturate(125%);
 }
 
-.dark .el-button--primary:not(.is-link):not(.is-text) {
+.dark .el-button--primary:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
   border-color: rgba(143, 166, 255, 0.30);
-  background: rgba(91, 124, 250, 0.70);
+  background: rgba(91, 124, 250, 0.74);
+}
+
+.dark .el-button--success:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
+  border-color: rgba(40, 199, 111, 0.30);
+  background: rgba(40, 199, 111, 0.70);
+}
+
+.dark .el-button--warning:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #2d2106;
+  border-color: rgba(245, 165, 36, 0.34);
+  background: rgba(245, 165, 36, 0.78);
+}
+
+.dark .el-button--danger:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
+  border-color: rgba(243, 18, 96, 0.30);
+  background: rgba(243, 18, 96, 0.72);
+}
+
+.dark .el-button--info:not(.is-plain):not(.is-link):not(.is-text) {
+  color: #ffffff;
+  border-color: rgba(139, 143, 163, 0.26);
+  background: rgba(139, 143, 163, 0.62);
+}
+
+.dark .el-button.is-plain:not(.is-link):not(.is-text) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .el-button--primary.is-plain:not(.is-link):not(.is-text) {
+  color: #aebfff;
+  border-color: rgba(143, 166, 255, 0.28);
+  background: rgba(91, 124, 250, 0.16);
+}
+
+.dark .el-alert--success.is-light,
+.dark .el-tag--success {
+  color: #8ce8b2;
+  border-color: rgba(40, 199, 111, 0.24);
+  background: rgba(40, 199, 111, 0.14);
+}
+
+.dark .el-alert--warning.is-light,
+.dark .el-tag--warning {
+  color: #f9d487;
+  border-color: rgba(245, 165, 36, 0.24);
+  background: rgba(245, 165, 36, 0.15);
+}
+
+.dark .el-alert--error.is-light,
+.dark .el-tag--danger {
+  color: #ff9cbc;
+  border-color: rgba(243, 18, 96, 0.24);
+  background: rgba(243, 18, 96, 0.14);
+}
+
+.dark .el-alert--info.is-light,
+.dark .el-tag--info {
+  color: #c8ccda;
+  border-color: rgba(139, 143, 163, 0.22);
+  background: rgba(139, 143, 163, 0.14);
+}
+
+.dark .el-alert__title {
+  color: inherit;
+}
+
+.dark .el-alert {
+  border-radius: 16px;
 }
 
 .dark .el-table,
@@ -358,6 +512,41 @@ const glassAuroraDarkCss = String.raw`
 .dark .brand-block p,
 .dark .sample-card p,
 .dark .token-row label {
+  color: #a9aebf;
+}
+
+.dark .section-title h2,
+.dark .preview-heading h2 {
+  color: #f5f7ff;
+}
+
+.dark .guide-panel p,
+.dark .guide-steps,
+.dark .guide-list,
+.dark .guide-code,
+.dark .css-compat-copy {
+  color: #d8deef;
+}
+
+.dark .panel-section.first,
+.dark .panel-section + .panel-section {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.dark .guide-code,
+.dark .css-compat-panel {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(8, 10, 18, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+
+.dark .swatch-item {
+  color: #f5f7ff;
+}
+
+.dark .swatch-item code {
   color: #a9aebf;
 }
 `
