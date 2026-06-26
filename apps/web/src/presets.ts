@@ -1191,6 +1191,373 @@ const softNeumorphDarkCss = String.raw`
 }
 `
 
+const monoEditorialLightCss = String.raw`
+.studio-shell {
+  background: #f7f7f4;
+}
+
+.studio-header,
+.editor-panel,
+.preview-panel,
+.preview-section,
+.el-card,
+.el-dialog,
+.el-message-box,
+.el-drawer,
+.el-popover.el-popper,
+.el-dropdown__popper .el-scrollbar,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-cascader__dropdown.el-popper {
+  border-color: #111827;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.el-button:not(.is-text):not(.is-link),
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number,
+.el-checkbox-button__inner,
+.el-radio-button__inner,
+.el-tag,
+.el-alert,
+.sample-menu,
+.sample-anchor {
+  border-color: #111827;
+  box-shadow: none;
+}
+
+.el-table th.el-table__cell {
+  color: #111827;
+  background: #f1f1ee;
+}
+
+.el-tabs__active-bar {
+  height: 2px;
+  background: #111827;
+}
+`
+
+const monoEditorialDarkCss = String.raw`
+.dark .studio-shell {
+  background: #0f1115;
+}
+
+.dark .studio-header,
+.dark .editor-panel,
+.dark .preview-panel,
+.dark .preview-section,
+.dark .el-card,
+.dark .el-dialog,
+.dark .el-message-box,
+.dark .el-drawer,
+.dark .el-popover.el-popper,
+.dark .el-dropdown__popper .el-scrollbar,
+.dark .el-select__popper.el-popper,
+.dark .el-picker__popper.el-popper,
+.dark .el-cascader__dropdown.el-popper {
+  border-color: #d9dde7;
+  background: #151821;
+  box-shadow: none;
+}
+
+.dark .el-button:not(.is-text):not(.is-link),
+.dark .el-input__wrapper,
+.dark .el-textarea__inner,
+.dark .el-select__wrapper,
+.dark .el-input-number,
+.dark .el-checkbox-button__inner,
+.dark .el-radio-button__inner,
+.dark .el-tag,
+.dark .el-alert,
+.dark .sample-menu,
+.dark .sample-anchor {
+  border-color: #596173;
+  box-shadow: none;
+}
+
+.dark .el-table th.el-table__cell {
+  color: #f5f7ff;
+  background: #1c202b;
+}
+`
+
+const bentoMintLightCss = String.raw`
+.studio-shell {
+  background: #edf8f4;
+}
+
+.studio-header,
+.editor-panel,
+.preview-panel,
+.preview-section,
+.el-card,
+.el-dialog,
+.el-message-box,
+.el-drawer,
+.el-popover.el-popper,
+.el-dropdown__popper .el-scrollbar,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-cascader__dropdown.el-popper {
+  border-color: rgba(13, 148, 136, 0.18);
+  background: #fbfffd;
+  box-shadow: 0 12px 30px rgba(15, 118, 110, 0.08);
+}
+
+.preview-section:nth-of-type(3n + 1) {
+  background: #f0fdfa;
+}
+
+.preview-section:nth-of-type(3n + 2) {
+  background: #f0f9ff;
+}
+
+.preview-section:nth-of-type(3n) {
+  background: #fff7ed;
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number,
+.el-checkbox-button__inner,
+.el-radio-button__inner,
+.el-tag,
+.el-alert,
+.sample-menu,
+.sample-anchor {
+  border-color: rgba(13, 148, 136, 0.18);
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.06);
+}
+
+.el-table th.el-table__cell {
+  background: #ccfbf1;
+}
+`
+
+const bentoMintDarkCss = String.raw`
+.dark .studio-shell {
+  background: #10191a;
+}
+
+.dark .studio-header,
+.dark .editor-panel,
+.dark .preview-panel,
+.dark .preview-section,
+.dark .el-card,
+.dark .el-dialog,
+.dark .el-message-box,
+.dark .el-drawer,
+.dark .el-popover.el-popper,
+.dark .el-dropdown__popper .el-scrollbar,
+.dark .el-select__popper.el-popper,
+.dark .el-picker__popper.el-popper,
+.dark .el-cascader__dropdown.el-popper {
+  border-color: rgba(45, 212, 191, 0.16);
+  background: #142224;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+}
+
+.dark .preview-section:nth-of-type(3n + 1) {
+  background: #122b29;
+}
+
+.dark .preview-section:nth-of-type(3n + 2) {
+  background: #132739;
+}
+
+.dark .preview-section:nth-of-type(3n) {
+  background: #2b2117;
+}
+
+.dark .el-table th.el-table__cell {
+  color: #ccfbf1;
+  background: #123532;
+}
+`
+
+const flatCandyLightCss = String.raw`
+.studio-shell {
+  background: #f7fbff;
+}
+
+.studio-header,
+.editor-panel,
+.preview-panel,
+.preview-section,
+.el-card,
+.el-dialog,
+.el-message-box,
+.el-drawer,
+.el-popover.el-popper,
+.el-dropdown__popper .el-scrollbar,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-cascader__dropdown.el-popper {
+  border-color: #d8e3f0;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.el-button:not(.is-text):not(.is-link),
+.el-tag,
+.el-alert {
+  border-width: 0;
+  box-shadow: none;
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number,
+.el-checkbox-button__inner,
+.el-radio-button__inner {
+  border-color: #d8e3f0;
+  background: #f7fbff;
+  box-shadow: none;
+}
+
+.el-table th.el-table__cell {
+  background: #e0f2fe;
+}
+`
+
+const flatCandyDarkCss = String.raw`
+.dark .studio-shell {
+  background: #15131d;
+}
+
+.dark .studio-header,
+.dark .editor-panel,
+.dark .preview-panel,
+.dark .preview-section,
+.dark .el-card,
+.dark .el-dialog,
+.dark .el-message-box,
+.dark .el-drawer,
+.dark .el-popover.el-popper,
+.dark .el-dropdown__popper .el-scrollbar,
+.dark .el-select__popper.el-popper,
+.dark .el-picker__popper.el-popper,
+.dark .el-cascader__dropdown.el-popper {
+  border-color: #3b3651;
+  background: #1d1a29;
+  box-shadow: none;
+}
+
+.dark .el-button:not(.is-text):not(.is-link),
+.dark .el-tag,
+.dark .el-alert {
+  border-width: 0;
+  box-shadow: none;
+}
+
+.dark .el-input__wrapper,
+.dark .el-textarea__inner,
+.dark .el-select__wrapper,
+.dark .el-input-number,
+.dark .el-checkbox-button__inner,
+.dark .el-radio-button__inner {
+  border-color: #3b3651;
+  background: #171420;
+  box-shadow: none;
+}
+`
+
+const midnightNeonLightCss = String.raw`
+.studio-shell {
+  color: #e5f3ff;
+  background: #101014;
+}
+
+.studio-header,
+.editor-panel,
+.preview-panel,
+.preview-section,
+.el-card,
+.el-dialog,
+.el-message-box,
+.el-drawer,
+.el-popover.el-popper,
+.el-dropdown__popper .el-scrollbar,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-cascader__dropdown.el-popper {
+  color: #e5f3ff;
+  border-color: rgba(34, 211, 238, 0.22);
+  background: #171820;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.08), 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+
+.brand-block p,
+.sample-card p,
+.section-title h2,
+.preview-heading h2,
+.token-row label {
+  color: #b7e7f5;
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number,
+.el-checkbox-button__inner,
+.el-radio-button__inner,
+.sample-menu,
+.sample-anchor {
+  color: #e5f3ff;
+  border-color: rgba(34, 211, 238, 0.20);
+  background: #11131b;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.08);
+}
+
+.el-button--primary {
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.26);
+}
+
+.el-table th.el-table__cell {
+  color: #67e8f9;
+  background: #111b24;
+}
+`
+
+const midnightNeonDarkCss = String.raw`
+.dark .studio-shell {
+  color: #e5f3ff;
+  background: #08090f;
+}
+
+.dark .studio-header,
+.dark .editor-panel,
+.dark .preview-panel,
+.dark .preview-section,
+.dark .el-card,
+.dark .el-dialog,
+.dark .el-message-box,
+.dark .el-drawer,
+.dark .el-popover.el-popper,
+.dark .el-dropdown__popper .el-scrollbar,
+.dark .el-select__popper.el-popper,
+.dark .el-picker__popper.el-popper,
+.dark .el-cascader__dropdown.el-popper {
+  color: #e5f3ff;
+  border-color: rgba(34, 211, 238, 0.20);
+  background: #101119;
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.08), 0 20px 52px rgba(0, 0, 0, 0.42);
+}
+
+.dark .brand-block p,
+.dark .sample-card p,
+.dark .section-title h2,
+.dark .preview-heading h2,
+.dark .token-row label {
+  color: #b7e7f5;
+}
+`
+
 export const themePresets: ThemePreset[] = [
   {
     id: 'aura-blue',
@@ -1673,6 +2040,386 @@ export const themePresets: ThemePreset[] = [
       cssOverrides: {
         light: softNeumorphLightCss,
         dark: softNeumorphDarkCss,
+      },
+    },
+  },
+  {
+    id: 'mono-editorial',
+    label: {
+      'zh-CN': '极简刊物',
+      'en-US': 'Mono Editorial',
+    },
+    swatches: ['#111827', '#0f766e', '#f7f7f4'],
+    tokens: {
+      name: 'Mono Editorial',
+      packageName: '@local/element-plus-theme-mono-editorial',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#111827',
+        primary: '#111827',
+        success: '#0f766e',
+        warning: '#b45309',
+        danger: '#be123c',
+        error: '#be123c',
+        info: '#4b5563',
+      },
+      radius: {
+        base: '2px',
+        small: '0',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#111827',
+        regular: '#374151',
+        secondary: '#6b7280',
+        placeholder: '#9ca3af',
+        disabled: '#d1d5db',
+      },
+      border: {
+        base: '#111827',
+        light: '#4b5563',
+        lighter: '#d1d5db',
+        extraLight: '#e5e7eb',
+        dark: '#000000',
+        darker: '#000000',
+        width: '1px',
+        style: 'solid',
+        hover: '#111827',
+      },
+      fill: {
+        base: '#f1f1ee',
+        light: '#f7f7f4',
+        lighter: '#fbfbf8',
+        extraLight: '#ffffff',
+        dark: '#e4e4df',
+        darker: '#d4d4cd',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#f7f7f4',
+        base: '#ffffff',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: 'none',
+        light: 'none',
+        lighter: 'none',
+        dark: 'none',
+      },
+      typography: {
+        fontFamily:
+          "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '21px',
+        large: '18px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '40px',
+        default: '32px',
+        small: '24px',
+      },
+      overlay: {
+        base: 'rgba(17, 24, 39, 0.78)',
+        light: 'rgba(17, 24, 39, 0.62)',
+        lighter: 'rgba(17, 24, 39, 0.42)',
+      },
+      mask: {
+        base: 'rgba(255, 255, 255, 0.88)',
+        extraLight: 'rgba(255, 255, 255, 0.30)',
+      },
+      cssOverrides: {
+        light: monoEditorialLightCss,
+        dark: monoEditorialDarkCss,
+      },
+    },
+  },
+  {
+    id: 'bento-mint',
+    label: {
+      'zh-CN': 'Bento 薄荷',
+      'en-US': 'Bento Mint',
+    },
+    swatches: ['#0d9488', '#38bdf8', '#f59e0b'],
+    tokens: {
+      name: 'Bento Mint',
+      packageName: '@local/element-plus-theme-bento-mint',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#10201f',
+        primary: '#0d9488',
+        success: '#22c55e',
+        warning: '#f59e0b',
+        danger: '#e11d48',
+        error: '#e11d48',
+        info: '#0284c7',
+      },
+      radius: {
+        base: '14px',
+        small: '10px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#12312f',
+        regular: '#31514e',
+        secondary: '#5f7974',
+        placeholder: '#91a6a0',
+        disabled: '#c6d5d0',
+      },
+      border: {
+        base: '#b7e4dd',
+        light: '#ccfbf1',
+        lighter: '#e5fbf7',
+        extraLight: '#f4fffc',
+        dark: '#5eead4',
+        darker: '#2dd4bf',
+        width: '1px',
+        style: 'solid',
+        hover: '#0d9488',
+      },
+      fill: {
+        base: '#ccfbf1',
+        light: '#ecfdf5',
+        lighter: '#f0fdfa',
+        extraLight: '#fbfffd',
+        dark: '#99f6e4',
+        darker: '#5eead4',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#edf8f4',
+        base: '#fbfffd',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: '0 12px 30px rgba(15, 118, 110, 0.08)',
+        light: '0 8px 18px rgba(15, 118, 110, 0.07)',
+        lighter: '0 4px 12px rgba(15, 118, 110, 0.06)',
+        dark: '0 18px 44px rgba(15, 118, 110, 0.14)',
+      },
+      typography: {
+        fontFamily:
+          "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '21px',
+        large: '18px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '42px',
+        default: '34px',
+        small: '26px',
+      },
+      overlay: {
+        base: 'rgba(16, 32, 31, 0.78)',
+        light: 'rgba(16, 32, 31, 0.62)',
+        lighter: 'rgba(16, 32, 31, 0.40)',
+      },
+      mask: {
+        base: 'rgba(237, 248, 244, 0.88)',
+        extraLight: 'rgba(237, 248, 244, 0.30)',
+      },
+      cssOverrides: {
+        light: bentoMintLightCss,
+        dark: bentoMintDarkCss,
+      },
+    },
+  },
+  {
+    id: 'flat-candy',
+    label: {
+      'zh-CN': '扁平糖果',
+      'en-US': 'Flat Candy',
+    },
+    swatches: ['#0ea5e9', '#f43f5e', '#22c55e'],
+    tokens: {
+      name: 'Flat Candy',
+      packageName: '@local/element-plus-theme-flat-candy',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#111827',
+        primary: '#0ea5e9',
+        success: '#22c55e',
+        warning: '#f59e0b',
+        danger: '#f43f5e',
+        error: '#f43f5e',
+        info: '#8b5cf6',
+      },
+      radius: {
+        base: '10px',
+        small: '8px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#172033',
+        regular: '#475569',
+        secondary: '#64748b',
+        placeholder: '#94a3b8',
+        disabled: '#cbd5e1',
+      },
+      border: {
+        base: '#d8e3f0',
+        light: '#e6edf6',
+        lighter: '#f0f5fb',
+        extraLight: '#f7fbff',
+        dark: '#b7c9dc',
+        darker: '#90a8c2',
+        width: '1px',
+        style: 'solid',
+        hover: '#0ea5e9',
+      },
+      fill: {
+        base: '#e0f2fe',
+        light: '#f0f9ff',
+        lighter: '#f7fbff',
+        extraLight: '#ffffff',
+        dark: '#bae6fd',
+        darker: '#7dd3fc',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#f7fbff',
+        base: '#ffffff',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: 'none',
+        light: 'none',
+        lighter: 'none',
+        dark: 'none',
+      },
+      typography: {
+        fontFamily:
+          "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '20px',
+        large: '18px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '40px',
+        default: '32px',
+        small: '24px',
+      },
+      overlay: {
+        base: 'rgba(17, 24, 39, 0.78)',
+        light: 'rgba(17, 24, 39, 0.62)',
+        lighter: 'rgba(17, 24, 39, 0.42)',
+      },
+      mask: {
+        base: 'rgba(247, 251, 255, 0.88)',
+        extraLight: 'rgba(247, 251, 255, 0.30)',
+      },
+      cssOverrides: {
+        light: flatCandyLightCss,
+        dark: flatCandyDarkCss,
+      },
+    },
+  },
+  {
+    id: 'midnight-neon',
+    label: {
+      'zh-CN': '暗夜霓虹',
+      'en-US': 'Midnight Neon',
+    },
+    swatches: ['#22d3ee', '#f472b6', '#facc15'],
+    tokens: {
+      name: 'Midnight Neon',
+      packageName: '@local/element-plus-theme-midnight-neon',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#05070d',
+        primary: '#22d3ee',
+        success: '#4ade80',
+        warning: '#facc15',
+        danger: '#f472b6',
+        error: '#f472b6',
+        info: '#a78bfa',
+      },
+      radius: {
+        base: '8px',
+        small: '6px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#e5f3ff',
+        regular: '#c7d7e5',
+        secondary: '#9db7c7',
+        placeholder: '#638091',
+        disabled: '#415667',
+      },
+      border: {
+        base: '#164e63',
+        light: '#1f6678',
+        lighter: '#193641',
+        extraLight: '#101b22',
+        dark: '#22d3ee',
+        darker: '#67e8f9',
+        width: '1px',
+        style: 'solid',
+        hover: '#22d3ee',
+      },
+      fill: {
+        base: '#11131b',
+        light: '#171820',
+        lighter: '#1c1e2a',
+        extraLight: '#101014',
+        dark: '#202435',
+        darker: '#2b3044',
+        blank: '#101014',
+      },
+      background: {
+        page: '#101014',
+        base: '#171820',
+        overlay: '#1d2130',
+      },
+      shadow: {
+        base: '0 0 0 1px rgba(34, 211, 238, 0.08), 0 18px 48px rgba(0, 0, 0, 0.32)',
+        light: '0 0 0 1px rgba(34, 211, 238, 0.08), 0 10px 24px rgba(0, 0, 0, 0.24)',
+        lighter: '0 0 0 1px rgba(34, 211, 238, 0.08)',
+        dark: '0 0 0 1px rgba(34, 211, 238, 0.18), 0 22px 56px rgba(0, 0, 0, 0.42)',
+      },
+      typography: {
+        fontFamily:
+          "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '21px',
+        large: '18px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '42px',
+        default: '34px',
+        small: '26px',
+      },
+      overlay: {
+        base: 'rgba(2, 6, 23, 0.86)',
+        light: 'rgba(2, 6, 23, 0.70)',
+        lighter: 'rgba(2, 6, 23, 0.50)',
+      },
+      mask: {
+        base: 'rgba(8, 9, 15, 0.88)',
+        extraLight: 'rgba(8, 9, 15, 0.34)',
+      },
+      cssOverrides: {
+        light: midnightNeonLightCss,
+        dark: midnightNeonDarkCss,
       },
     },
   },
