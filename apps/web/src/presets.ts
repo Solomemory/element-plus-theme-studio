@@ -16,7 +16,18 @@ const glassAuroraLightCss = String.raw`
   position: relative;
   isolation: isolate;
   background:
-    linear-gradient(132deg, #f8f8fb 0%, #eef3ff 42%, #fff5e8 100%);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.74) 0%, rgba(247, 250, 255, 0.52) 42%, rgba(255, 255, 255, 0.66) 100%),
+    conic-gradient(
+      from 218deg at 50% 52%,
+      #7c3aed 0deg,
+      #2563eb 54deg,
+      #06b6d4 112deg,
+      #22c55e 166deg,
+      #facc15 214deg,
+      #fb7185 276deg,
+      #a855f7 326deg,
+      #7c3aed 360deg
+    );
 }
 
 .studio-shell::before {
@@ -26,9 +37,17 @@ const glassAuroraLightCss = String.raw`
   pointer-events: none;
   border-radius: 34px;
   background:
-    linear-gradient(128deg, rgba(143, 132, 195, 0.48) 0%, rgba(232, 239, 255, 0.86) 44%, rgba(255, 182, 97, 0.48) 100%);
-  filter: blur(0.2px);
-  opacity: 0.78;
+    linear-gradient(
+      128deg,
+      rgba(124, 58, 237, 0.72) 0%,
+      rgba(37, 99, 235, 0.64) 23%,
+      rgba(6, 182, 212, 0.58) 42%,
+      rgba(34, 197, 94, 0.48) 58%,
+      rgba(250, 204, 21, 0.60) 74%,
+      rgba(251, 113, 133, 0.64) 100%
+    );
+  filter: saturate(112%);
+  opacity: 0.84;
 }
 
 .studio-header,
@@ -56,7 +75,7 @@ const glassAuroraLightCss = String.raw`
 .el-picker__popper.el-popper,
 .el-cascader__dropdown.el-popper {
   border-color: rgba(255, 255, 255, 0.62);
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.50);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.86),
     0 18px 48px rgba(91, 124, 250, 0.10),
@@ -66,7 +85,7 @@ const glassAuroraLightCss = String.raw`
 }
 
 .studio-header {
-  background: rgba(255, 255, 255, 0.54);
+  background: rgba(255, 255, 255, 0.42);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.62), 0 10px 30px rgba(31, 35, 52, 0.05);
 }
 
@@ -86,7 +105,7 @@ const glassAuroraLightCss = String.raw`
 .carousel-panel,
 .sample-anchor {
   border-color: rgba(255, 255, 255, 0.68);
-  background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.36);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 12px 28px rgba(31, 35, 52, 0.06);
@@ -103,7 +122,7 @@ const glassAuroraLightCss = String.raw`
 .el-segmented,
 .el-upload-dragger {
   border-color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.42);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 8px 22px rgba(31, 35, 52, 0.05);
@@ -116,7 +135,7 @@ const glassAuroraLightCss = String.raw`
 .el-alert {
   border-color: rgba(255, 255, 255, 0.72);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.40);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.90),
     0 10px 24px rgba(31, 35, 52, 0.06);
@@ -148,11 +167,11 @@ const glassAuroraLightCss = String.raw`
 
 .el-table th.el-table__cell {
   color: #6f7382;
-  background: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .el-table__body tr:hover > td.el-table__cell {
-  background: rgba(255, 255, 255, 0.30);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .el-alert,
@@ -167,7 +186,7 @@ const glassAuroraLightCss = String.raw`
 .el-menu,
 .sample-menu {
   border-color: rgba(255, 255, 255, 0.64);
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.32);
 }
 
 .el-tabs__item,
@@ -184,7 +203,18 @@ const glassAuroraDarkCss = String.raw`
   position: relative;
   isolation: isolate;
   background:
-    linear-gradient(132deg, #11111a 0%, #171a2a 48%, #221a25 100%);
+    linear-gradient(145deg, rgba(8, 10, 20, 0.74) 0%, rgba(15, 18, 32, 0.48) 46%, rgba(18, 14, 24, 0.72) 100%),
+    conic-gradient(
+      from 218deg at 50% 52%,
+      #6d28d9 0deg,
+      #1d4ed8 54deg,
+      #0891b2 112deg,
+      #15803d 166deg,
+      #ca8a04 214deg,
+      #be123c 276deg,
+      #7e22ce 326deg,
+      #6d28d9 360deg
+    );
 }
 
 .dark .studio-shell::before {
@@ -194,9 +224,17 @@ const glassAuroraDarkCss = String.raw`
   pointer-events: none;
   border-radius: 34px;
   background:
-    linear-gradient(128deg, rgba(124, 104, 193, 0.44) 0%, rgba(52, 72, 112, 0.58) 46%, rgba(255, 153, 88, 0.28) 100%);
-  filter: blur(0.2px);
-  opacity: 0.62;
+    linear-gradient(
+      128deg,
+      rgba(124, 58, 237, 0.56) 0%,
+      rgba(37, 99, 235, 0.46) 22%,
+      rgba(6, 182, 212, 0.38) 42%,
+      rgba(34, 197, 94, 0.28) 58%,
+      rgba(250, 204, 21, 0.32) 74%,
+      rgba(251, 113, 133, 0.42) 100%
+    );
+  filter: saturate(112%);
+  opacity: 0.72;
 }
 
 .dark .studio-header,
@@ -224,7 +262,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-picker__popper.el-popper,
 .dark .el-cascader__dropdown.el-popper {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(24, 26, 39, 0.56);
+  background: rgba(24, 26, 39, 0.46);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 22px 58px rgba(0, 0, 0, 0.30),
@@ -249,7 +287,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .carousel-panel,
 .dark .sample-anchor {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(24, 26, 39, 0.46);
+  background: rgba(24, 26, 39, 0.36);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.11),
     0 14px 32px rgba(0, 0, 0, 0.22);
@@ -266,7 +304,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-segmented,
 .dark .el-upload-dragger {
   border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(24, 26, 39, 0.48);
+  background: rgba(24, 26, 39, 0.38);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.10),
     0 10px 26px rgba(0, 0, 0, 0.20);
@@ -279,7 +317,7 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-alert {
   border-color: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 10px 26px rgba(0, 0, 0, 0.22);
