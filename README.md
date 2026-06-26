@@ -41,7 +41,7 @@ If the workflow shows `Get Pages site failed` or `HttpError: Not Found`, the rep
 - Real-time previews for common Element Plus components across forms, actions, feedback, navigation, data display, content, and overlays
 - Light and dark theme preview with generated `dark.css`
 - Chinese and English UI switching
-- Built-in theme presets, including Aura Blue, Glass Aurora, Emerald, Rose, Slate, and Vben Admin
+- Built-in theme presets, including Aura Blue, Glass Aurora, Data Wall, Emerald, Rose, Slate, and Vben Admin
 - Random theme generation for fast palette exploration
 - JSON import and export for theme source configuration
 - Target Element Plus version selection with version-aware `theme-chalk` variable resolution
