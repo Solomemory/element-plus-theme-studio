@@ -92,7 +92,7 @@ import { defaultPresetId, themePresets } from '../presets'
 import { useThemeStore } from '../stores/themeStore'
 import { applyElementCssVars } from '../utils/cssVars'
 import { createRandomThemeTokens } from '../utils/randomTheme'
-import type { SassVariableDefinition } from '../../../../packages/theme-builder/src/tokenCatalog'
+import { SASS_VARIABLES, type SassVariableDefinition } from '../../../../packages/theme-builder/src/tokenCatalog'
 
 interface ElementPlusMetadata {
   requestedVersion: string
@@ -266,12 +266,13 @@ async function generateTheme(): Promise<void> {
 
 async function loadElementPlusMetadata(): Promise<void> {
   if (isStaticDemo) {
+    const fallbackVariables = [...SASS_VARIABLES]
     elementPlusMetadata.value = {
       requestedVersion: tokens.elementPlusVersion,
       version: tokens.elementPlusVersion,
       supportsDarkCssVars: true,
-      variableCount: 0,
-      variables: [],
+      variableCount: fallbackVariables.length,
+      variables: fallbackVariables,
     }
     return
   }

@@ -221,7 +221,10 @@ const emit = defineEmits<{
 const activeTab = ref('guide')
 const activeSassTab = ref<SassVariableCategory>('core')
 const { t } = useI18n()
-const sassVariables = computed(() => props.elementPlusMetadata?.variables ?? [...SASS_VARIABLES])
+const sassVariables = computed(() => {
+  const resolvedVariables = props.elementPlusMetadata?.variables ?? []
+  return resolvedVariables.length > 0 ? resolvedVariables : [...SASS_VARIABLES]
+})
 
 const colorSections: Section[] = [
   {
