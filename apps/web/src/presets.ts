@@ -13,40 +13,85 @@ export interface ThemePreset {
 
 const glassAuroraLightCss = String.raw`
 .studio-shell {
+  position: relative;
+  isolation: isolate;
   background:
-    linear-gradient(135deg, rgba(236, 253, 245, 0.96) 0%, rgba(239, 246, 255, 0.94) 42%, rgba(255, 247, 237, 0.92) 100%);
+    linear-gradient(132deg, #f8f8fb 0%, #eef3ff 42%, #fff5e8 100%);
+}
+
+.studio-shell::before {
+  position: absolute;
+  inset: 72px 8% 28px;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 34px;
+  background:
+    linear-gradient(128deg, rgba(143, 132, 195, 0.48) 0%, rgba(232, 239, 255, 0.86) 44%, rgba(255, 182, 97, 0.48) 100%);
+  filter: blur(0.2px);
+  opacity: 0.78;
+}
+
+.studio-header,
+.studio-main,
+.status-banner {
+  position: relative;
+  z-index: 1;
 }
 
 .studio-header,
 .editor-panel,
 .preview-panel,
+.preview-section,
 .preview-card,
 .el-card,
 .el-dialog,
 .el-message-box,
 .el-drawer,
+.el-message,
+.el-notification,
+.el-tour__content,
 .el-popover.el-popper,
 .el-dropdown__popper .el-scrollbar,
 .el-select__popper.el-popper,
 .el-picker__popper.el-popper,
 .el-cascader__dropdown.el-popper {
-  border-color: rgba(148, 163, 184, 0.34);
-  background: rgba(255, 255, 255, 0.68);
-  box-shadow: 0 18px 52px rgba(15, 23, 42, 0.10);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border-color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 18px 48px rgba(91, 124, 250, 0.10),
+    0 24px 60px rgba(31, 35, 52, 0.08);
+  backdrop-filter: blur(26px) saturate(135%);
+  -webkit-backdrop-filter: blur(26px) saturate(135%);
 }
 
 .studio-header {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.54);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.62), 0 10px 30px rgba(31, 35, 52, 0.05);
+}
+
+.editor-panel,
+.preview-panel {
+  border-radius: 22px;
 }
 
 .brand-mark,
 .token-swatch,
-.stat-card {
-  border-color: rgba(14, 165, 233, 0.28);
-  background: rgba(255, 255, 255, 0.52);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
+.stat-card,
+.swatch-item,
+.radius-demo,
+.type-demo,
+.shadow-demo,
+.loading-box,
+.carousel-panel,
+.sample-anchor {
+  border-color: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 12px 28px rgba(31, 35, 52, 0.06);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
 }
 
 .el-input__wrapper,
@@ -54,12 +99,43 @@ const glassAuroraLightCss = String.raw`
 .el-select__wrapper,
 .el-input-number,
 .el-checkbox-button__inner,
-.el-radio-button__inner {
-  background: rgba(255, 255, 255, 0.58);
-  border-color: rgba(148, 163, 184, 0.36);
-  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.28) inset;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.el-radio-button__inner,
+.el-segmented,
+.el-upload-dragger {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    0 8px 22px rgba(31, 35, 52, 0.05);
+  backdrop-filter: blur(20px) saturate(125%);
+  -webkit-backdrop-filter: blur(20px) saturate(125%);
+}
+
+.el-button:not(.is-text):not(.is-link),
+.el-tag,
+.el-alert {
+  border-color: rgba(255, 255, 255, 0.72);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.50);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    0 10px 24px rgba(31, 35, 52, 0.06);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+}
+
+.el-button--primary:not(.is-link):not(.is-text) {
+  border-color: rgba(91, 124, 250, 0.34);
+  background: rgba(91, 124, 250, 0.82);
+}
+
+.el-button:not(.is-text):not(.is-link):hover,
+.el-input__wrapper:hover,
+.el-select__wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.94),
+    0 14px 30px rgba(91, 124, 250, 0.10);
 }
 
 .el-table,
@@ -71,7 +147,12 @@ const glassAuroraLightCss = String.raw`
 }
 
 .el-table th.el-table__cell {
-  background: rgba(248, 250, 252, 0.72);
+  color: #6f7382;
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.el-table__body tr:hover > td.el-table__cell {
+  background: rgba(255, 255, 255, 0.30);
 }
 
 .el-alert,
@@ -79,43 +160,101 @@ const glassAuroraLightCss = String.raw`
 .el-tabs__nav-wrap::after,
 .el-menu,
 .sample-menu {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+}
+
+.el-menu,
+.sample-menu {
+  border-color: rgba(255, 255, 255, 0.64);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.el-tabs__item,
+.el-menu-item,
+.brand-block p,
+.sample-card p,
+.token-row label {
+  color: #6f7382;
 }
 `
 
 const glassAuroraDarkCss = String.raw`
 .dark .studio-shell {
+  position: relative;
+  isolation: isolate;
   background:
-    linear-gradient(135deg, rgba(2, 6, 23, 0.98) 0%, rgba(15, 23, 42, 0.96) 48%, rgba(22, 78, 99, 0.86) 100%);
+    linear-gradient(132deg, #11111a 0%, #171a2a 48%, #221a25 100%);
+}
+
+.dark .studio-shell::before {
+  position: absolute;
+  inset: 72px 8% 28px;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 34px;
+  background:
+    linear-gradient(128deg, rgba(124, 104, 193, 0.44) 0%, rgba(52, 72, 112, 0.58) 46%, rgba(255, 153, 88, 0.28) 100%);
+  filter: blur(0.2px);
+  opacity: 0.62;
+}
+
+.dark .studio-header,
+.dark .studio-main,
+.dark .status-banner {
+  position: relative;
+  z-index: 1;
 }
 
 .dark .studio-header,
 .dark .editor-panel,
 .dark .preview-panel,
+.dark .preview-section,
 .dark .preview-card,
 .dark .el-card,
 .dark .el-dialog,
 .dark .el-message-box,
 .dark .el-drawer,
+.dark .el-message,
+.dark .el-notification,
+.dark .el-tour__content,
 .dark .el-popover.el-popper,
 .dark .el-dropdown__popper .el-scrollbar,
 .dark .el-select__popper.el-popper,
 .dark .el-picker__popper.el-popper,
 .dark .el-cascader__dropdown.el-popper {
-  border-color: rgba(125, 211, 252, 0.18);
-  background: rgba(15, 23, 42, 0.66);
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(24, 26, 39, 0.56);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 22px 58px rgba(0, 0, 0, 0.30),
+    0 14px 36px rgba(91, 124, 250, 0.08);
+  backdrop-filter: blur(28px) saturate(135%);
+  -webkit-backdrop-filter: blur(28px) saturate(135%);
+}
+
+.dark .editor-panel,
+.dark .preview-panel {
+  border-radius: 22px;
 }
 
 .dark .brand-mark,
 .dark .token-swatch,
-.dark .stat-card {
-  border-color: rgba(125, 211, 252, 0.22);
-  background: rgba(15, 23, 42, 0.58);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+.dark .stat-card,
+.dark .swatch-item,
+.dark .radius-demo,
+.dark .type-demo,
+.dark .shadow-demo,
+.dark .loading-box,
+.dark .carousel-panel,
+.dark .sample-anchor {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(24, 26, 39, 0.46);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    0 14px 32px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
 }
 
 .dark .el-input__wrapper,
@@ -123,12 +262,34 @@ const glassAuroraDarkCss = String.raw`
 .dark .el-select__wrapper,
 .dark .el-input-number,
 .dark .el-checkbox-button__inner,
-.dark .el-radio-button__inner {
-  background: rgba(15, 23, 42, 0.56);
-  border-color: rgba(125, 211, 252, 0.16);
-  box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.14) inset;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.dark .el-radio-button__inner,
+.dark .el-segmented,
+.dark .el-upload-dragger {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(24, 26, 39, 0.48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 10px 26px rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(22px) saturate(125%);
+  -webkit-backdrop-filter: blur(22px) saturate(125%);
+}
+
+.dark .el-button:not(.is-text):not(.is-link),
+.dark .el-tag,
+.dark .el-alert {
+  border-color: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 26px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(20px) saturate(125%);
+  -webkit-backdrop-filter: blur(20px) saturate(125%);
+}
+
+.dark .el-button--primary:not(.is-link):not(.is-text) {
+  border-color: rgba(143, 166, 255, 0.30);
+  background: rgba(91, 124, 250, 0.70);
 }
 
 .dark .el-table,
@@ -140,7 +301,26 @@ const glassAuroraDarkCss = String.raw`
 }
 
 .dark .el-table th.el-table__cell {
-  background: rgba(15, 23, 42, 0.68);
+  color: #c8ccda;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .el-table__body tr:hover > td.el-table__cell {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.dark .el-menu,
+.dark .sample-menu {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(24, 26, 39, 0.42);
+}
+
+.dark .el-tabs__item,
+.dark .el-menu-item,
+.dark .brand-block p,
+.dark .sample-card p,
+.dark .token-row label {
+  color: #a9aebf;
 }
 `
 
@@ -787,64 +967,64 @@ export const themePresets: ThemePreset[] = [
       'zh-CN': '极光玻璃',
       'en-US': 'Glass Aurora',
     },
-    swatches: ['#0891b2', '#10b981', '#f59e0b'],
+    swatches: ['#5b7cfa', '#f8f8fb', '#ffb86b'],
     tokens: {
       name: 'Glass Aurora',
       packageName: '@local/element-plus-theme-glass-aurora',
       elementPlusVersion: 'latest',
       colors: {
         white: '#ffffff',
-        black: '#020617',
-        primary: '#0891b2',
-        success: '#10b981',
-        warning: '#f59e0b',
-        danger: '#e11d48',
-        error: '#e11d48',
-        info: '#64748b',
+        black: '#111827',
+        primary: '#5b7cfa',
+        success: '#28c76f',
+        warning: '#f5a524',
+        danger: '#f31260',
+        error: '#f31260',
+        info: '#8b8fa3',
       },
       radius: {
-        base: '14px',
-        small: '10px',
+        base: '18px',
+        small: '14px',
         round: '9999px',
         circle: '100%',
       },
       text: {
-        primary: '#0f172a',
-        regular: '#334155',
-        secondary: '#64748b',
-        placeholder: '#94a3b8',
-        disabled: '#cbd5e1',
+        primary: '#232634',
+        regular: '#545866',
+        secondary: '#7b8090',
+        placeholder: '#a2a6b3',
+        disabled: '#c9ccd6',
       },
       border: {
-        base: '#bae6fd',
-        light: '#d8f3fd',
-        lighter: '#eaf9ff',
-        extraLight: '#f5fdff',
-        dark: '#7dd3fc',
-        darker: '#38bdf8',
+        base: '#e6e8f0',
+        light: '#eef0f5',
+        lighter: '#f4f5f9',
+        extraLight: '#fafbff',
+        dark: '#d6dae5',
+        darker: '#c4c9d6',
         width: '1px',
         style: 'solid',
-        hover: '#06b6d4',
+        hover: '#cfd5e4',
       },
       fill: {
-        base: '#ecfeff',
-        light: '#f0fdfa',
-        lighter: '#f8fafc',
+        base: '#f4f5f9',
+        light: '#f8f8fb',
+        lighter: '#fbfbfd',
         extraLight: '#ffffff',
-        dark: '#cffafe',
-        darker: '#a5f3fc',
+        dark: '#e8ebf3',
+        darker: '#dfe3ee',
         blank: '#ffffff',
       },
       background: {
-        page: '#effaf9',
-        base: '#ffffff',
+        page: '#f8f8fb',
+        base: '#fbfbfd',
         overlay: '#ffffff',
       },
       shadow: {
-        base: '0 18px 52px rgba(8, 145, 178, 0.12), 0 8px 24px rgba(15, 23, 42, 0.08)',
-        light: '0 0 18px rgba(8, 145, 178, 0.14)',
-        lighter: '0 0 8px rgba(8, 145, 178, 0.12)',
-        dark: '0 24px 72px rgba(8, 145, 178, 0.18), 0 12px 32px rgba(15, 23, 42, 0.16)',
+        base: 'inset 0 1px 0 rgba(255, 255, 255, 0.86), 0 18px 48px rgba(91, 124, 250, 0.10), 0 24px 60px rgba(31, 35, 52, 0.08)',
+        light: 'inset 0 1px 0 rgba(255, 255, 255, 0.88), 0 12px 28px rgba(31, 35, 52, 0.06)',
+        lighter: 'inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 8px 18px rgba(31, 35, 52, 0.05)',
+        dark: 'inset 0 1px 0 rgba(255, 255, 255, 0.90), 0 28px 76px rgba(91, 124, 250, 0.14), 0 30px 80px rgba(31, 35, 52, 0.12)',
       },
       typography: {
         fontFamily:
