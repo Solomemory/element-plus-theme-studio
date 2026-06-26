@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Element Plus Theme Studio">
+  <defs>
+    <linearGradient id="bg" x1="10" x2="54" y1="8" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60a5fa" />
+      <stop offset="0.52" stop-color="#2563eb" />
+      <stop offset="1" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="brush" x1="20" x2="45" y1="45" y2="20" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1f2937" />
+      <stop offset="1" stop-color="#111827" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)" />
+  <rect x="11" y="11" width="42" height="42" rx="11" fill="#fff" opacity="0.96" />
+  <rect x="18" y="18" width="9" height="9" rx="3" fill="#2563eb" />
+  <rect x="30" y="18" width="9" height="9" rx="3" fill="#16a34a" />
+  <rect x="42" y="18" width="9" height="9" rx="3" fill="#d97706" />
+  <path
+    d="M22 44c1.7-7.1 6.3-12.5 13.4-14.8l6.7 6.7C39.7 43 34.2 47.5 27 49.2c.6-3-2-5.6-5-5.2Z"
+    fill="url(#brush)"
+  />
+  <path d="M34.5 28.2 43.9 18.8c1.1-1.1 2.9-1.1 4 0l.3.3c1.1 1.1 1.1 2.9 0 4l-9.4 9.4-4.3-4.3Z" fill="#93c5fd" />
+  <path d="M24 44.6c1.6-.2 2.6.8 2.4 2.4-1.5.6-3.3.8-5.3.8.1-1.9.4-3.7 1-5.2.5 1.2 1 1.8 1.9 2Z" fill="#2563eb" />
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "Element Plus Theme Studio",
+  "short_name": "Theme Studio",
+  "description": "A visual Element Plus theme editor and theme package generator.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#2563eb",
+  "background_color": "#eef2f7",
+  "display": "standalone"
+}
