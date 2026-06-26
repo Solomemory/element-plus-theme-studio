@@ -59,9 +59,6 @@ const glassAuroraLightCss = String.raw`
 .studio-header,
 .editor-panel,
 .preview-panel,
-.preview-section,
-.preview-card,
-.el-card,
 .el-dialog,
 .el-message-box,
 .el-drawer,
@@ -93,6 +90,18 @@ const glassAuroraLightCss = String.raw`
   border-radius: 22px;
 }
 
+.preview-section,
+.preview-card,
+.el-card {
+  border-color: rgba(255, 255, 255, 0.54);
+  background: rgba(255, 255, 255, 0.54);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 10px 28px rgba(31, 35, 52, 0.05);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 .brand-mark,
 .token-swatch,
 .stat-card,
@@ -108,8 +117,8 @@ const glassAuroraLightCss = String.raw`
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 12px 28px rgba(31, 35, 52, 0.06);
-  backdrop-filter: blur(18px) saturate(130%);
-  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .el-input__wrapper,
@@ -125,8 +134,8 @@ const glassAuroraLightCss = String.raw`
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     0 8px 22px rgba(31, 35, 52, 0.05);
-  backdrop-filter: blur(20px) saturate(125%);
-  -webkit-backdrop-filter: blur(20px) saturate(125%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .el-button:not(.is-text):not(.is-link),
@@ -138,8 +147,8 @@ const glassAuroraLightCss = String.raw`
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.90),
     0 10px 24px rgba(31, 35, 52, 0.06);
-  backdrop-filter: blur(18px) saturate(125%);
-  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .el-button--primary:not(.is-plain):not(.is-link):not(.is-text) {
@@ -244,13 +253,8 @@ const glassAuroraLightCss = String.raw`
   background: rgba(255, 255, 255, 0.22);
 }
 
-.el-alert,
-.el-tag,
-.el-tabs__nav-wrap::after,
-.el-menu,
-.sample-menu {
-  backdrop-filter: blur(18px) saturate(125%);
-  -webkit-backdrop-filter: blur(18px) saturate(125%);
+.el-tabs__nav-wrap::after {
+  background: rgba(255, 255, 255, 0.42);
 }
 
 .el-menu,
@@ -277,8 +281,8 @@ const glassAuroraLightCss = String.raw`
   border-color: rgba(255, 255, 255, 0.64);
   background: rgba(255, 255, 255, 0.46);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px) saturate(125%);
-  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 `
 
@@ -330,9 +334,6 @@ const glassAuroraDarkCss = String.raw`
 .dark .studio-header,
 .dark .editor-panel,
 .dark .preview-panel,
-.dark .preview-section,
-.dark .preview-card,
-.dark .el-card,
 .dark .el-dialog,
 .dark .el-message-box,
 .dark .el-drawer,
@@ -359,6 +360,18 @@ const glassAuroraDarkCss = String.raw`
   border-radius: 22px;
 }
 
+.dark .preview-section,
+.dark .preview-card,
+.dark .el-card {
+  border-color: rgba(255, 255, 255, 0.10);
+  background: rgba(24, 26, 39, 0.50);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.22);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 .dark .brand-mark,
 .dark .token-swatch,
 .dark .stat-card,
@@ -374,8 +387,8 @@ const glassAuroraDarkCss = String.raw`
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.11),
     0 14px 32px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(20px) saturate(130%);
-  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .dark .el-input__wrapper,
@@ -391,8 +404,8 @@ const glassAuroraDarkCss = String.raw`
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.10),
     0 10px 26px rgba(0, 0, 0, 0.20);
-  backdrop-filter: blur(22px) saturate(125%);
-  -webkit-backdrop-filter: blur(22px) saturate(125%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .dark .el-button:not(.is-text):not(.is-link),
@@ -404,8 +417,8 @@ const glassAuroraDarkCss = String.raw`
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.12),
     0 10px 26px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(20px) saturate(125%);
-  -webkit-backdrop-filter: blur(20px) saturate(125%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .dark .el-button--primary:not(.is-plain):not(.is-link):not(.is-text) {
