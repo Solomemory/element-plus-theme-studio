@@ -1,0 +1,34 @@
+{
+  "name": "Aura Blue",
+  "packageName": "@local/element-plus-theme-aura-blue",
+  "elementPlusVersion": "latest",
+  "colors": {
+    "primary": "#2563eb",
+    "success": "#16a34a",
+    "warning": "#d97706",
+    "danger": "#dc2626",
+    "error": "#dc2626",
+    "info": "#64748b"
+  },
+  "radius": {
+    "base": "6px",
+    "small": "4px",
+    "round": "9999px"
+  },
+  "text": {
+    "primary": "#111827",
+    "regular": "#374151",
+    "secondary": "#6b7280",
+    "placeholder": "#9ca3af"
+  },
+  "border": {
+    "base": "#d1d5db",
+    "light": "#e5e7eb",
+    "lighter": "#f3f4f6"
+  },
+  "background": {
+    "page": "#f8fafc",
+    "base": "#ffffff",
+    "overlay": "#ffffff"
+  }
+}

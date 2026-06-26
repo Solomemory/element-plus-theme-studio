@@ -1,0 +1,260 @@
+import { cloneThemeTokens, DEFAULT_TOKENS } from '../../../packages/theme-builder/src/tokens'
+import vbenAdminTokens from '../../../examples/vben-admin.json'
+
+export interface ThemePreset {
+  id: string
+  label: {
+    'zh-CN': string
+    'en-US': string
+  }
+  swatches: string[]
+  tokens: unknown
+}
+
+export const themePresets: ThemePreset[] = [
+  {
+    id: 'aura-blue',
+    label: {
+      'zh-CN': '灵光蓝',
+      'en-US': 'Aura Blue',
+    },
+    swatches: ['#2563eb', '#16a34a', '#f8fafc'],
+    tokens: cloneThemeTokens(DEFAULT_TOKENS),
+  },
+  {
+    id: 'vben-admin',
+    label: {
+      'zh-CN': 'Vben Admin',
+      'en-US': 'Vben Admin',
+    },
+    swatches: ['#006be6', '#ff3860', '#f1f3f6'],
+    tokens: vbenAdminTokens,
+  },
+  {
+    id: 'emerald-console',
+    label: {
+      'zh-CN': '翡翠控制台',
+      'en-US': 'Emerald Console',
+    },
+    swatches: ['#059669', '#0f766e', '#f0fdfa'],
+    tokens: {
+      name: 'Emerald Console',
+      packageName: '@local/element-plus-theme-emerald-console',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#020617',
+        primary: '#059669',
+        success: '#16a34a',
+        warning: '#ca8a04',
+        danger: '#dc2626',
+        error: '#dc2626',
+        info: '#475569',
+      },
+      radius: {
+        base: '8px',
+        small: '5px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#0f172a',
+        regular: '#334155',
+        secondary: '#64748b',
+        placeholder: '#94a3b8',
+        disabled: '#cbd5e1',
+      },
+      border: {
+        base: '#cbd5e1',
+        light: '#dbe4ea',
+        lighter: '#e7eef2',
+        extraLight: '#f1f7f4',
+        dark: '#94a3b8',
+        darker: '#64748b',
+        width: '1px',
+        style: 'solid',
+        hover: '#10b981',
+      },
+      fill: {
+        base: '#edf7f2',
+        light: '#f4fbf8',
+        lighter: '#f8fdfb',
+        extraLight: '#ffffff',
+        dark: '#d9eee5',
+        darker: '#c7e5d6',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#eef7f2',
+        base: '#ffffff',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: '0 12px 32px 4px rgba(15, 118, 110, 0.07), 0 8px 20px rgba(15, 23, 42, 0.07)',
+        light: '0 0 12px rgba(15, 118, 110, 0.10)',
+        lighter: '0 0 6px rgba(15, 118, 110, 0.10)',
+        dark: '0 16px 48px 16px rgba(15, 118, 110, 0.10), 0 12px 32px rgba(15, 23, 42, 0.12)',
+      },
+      typography: {
+        fontFamily:
+          "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '20px',
+        large: '18px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '40px',
+        default: '32px',
+        small: '24px',
+      },
+      overlay: {
+        base: 'rgba(15, 23, 42, 0.76)',
+        light: 'rgba(15, 23, 42, 0.62)',
+        lighter: 'rgba(15, 23, 42, 0.42)',
+      },
+      mask: {
+        base: 'rgba(255, 255, 255, 0.88)',
+        extraLight: 'rgba(255, 255, 255, 0.32)',
+      },
+    },
+  },
+  {
+    id: 'rose-quartz',
+    label: {
+      'zh-CN': '蔷薇石英',
+      'en-US': 'Rose Quartz',
+    },
+    swatches: ['#e11d48', '#f97316', '#fff1f2'],
+    tokens: {
+      name: 'Rose Quartz',
+      packageName: '@local/element-plus-theme-rose-quartz',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#111827',
+        primary: '#e11d48',
+        success: '#10b981',
+        warning: '#f59e0b',
+        danger: '#dc2626',
+        error: '#dc2626',
+        info: '#64748b',
+      },
+      radius: {
+        base: '10px',
+        small: '6px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#1f2937',
+        regular: '#4b5563',
+        secondary: '#6b7280',
+        placeholder: '#9ca3af',
+        disabled: '#d1d5db',
+      },
+      border: {
+        base: '#f4cdd6',
+        light: '#f8dfe6',
+        lighter: '#fbeaf0',
+        extraLight: '#fff5f7',
+        dark: '#e9a9ba',
+        darker: '#d37b94',
+        width: '1px',
+        style: 'solid',
+        hover: '#fb7185',
+      },
+      fill: {
+        base: '#fff1f2',
+        light: '#fff7f8',
+        lighter: '#fffafb',
+        extraLight: '#ffffff',
+        dark: '#ffe4e9',
+        darker: '#ffd4de',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#fff7f8',
+        base: '#ffffff',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: '0 12px 32px 4px rgba(225, 29, 72, 0.06), 0 8px 20px rgba(15, 23, 42, 0.07)',
+        light: '0 0 12px rgba(225, 29, 72, 0.11)',
+        lighter: '0 0 6px rgba(225, 29, 72, 0.10)',
+        dark: '0 16px 48px 16px rgba(225, 29, 72, 0.10), 0 12px 32px rgba(15, 23, 42, 0.12)',
+      },
+    },
+  },
+  {
+    id: 'graphite-pro',
+    label: {
+      'zh-CN': '石墨专业版',
+      'en-US': 'Graphite Pro',
+    },
+    swatches: ['#334155', '#0f766e', '#f1f5f9'],
+    tokens: {
+      name: 'Graphite Pro',
+      packageName: '@local/element-plus-theme-graphite-pro',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#ffffff',
+        black: '#020617',
+        primary: '#334155',
+        success: '#0f766e',
+        warning: '#b45309',
+        danger: '#be123c',
+        error: '#be123c',
+        info: '#64748b',
+      },
+      radius: {
+        base: '4px',
+        small: '2px',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#0f172a',
+        regular: '#334155',
+        secondary: '#64748b',
+        placeholder: '#94a3b8',
+        disabled: '#cbd5e1',
+      },
+      border: {
+        base: '#cbd5e1',
+        light: '#dbe3ea',
+        lighter: '#e9eef4',
+        extraLight: '#f4f7fb',
+        dark: '#94a3b8',
+        darker: '#64748b',
+        width: '1px',
+        style: 'solid',
+        hover: '#64748b',
+      },
+      fill: {
+        base: '#f1f5f9',
+        light: '#f8fafc',
+        lighter: '#fbfdff',
+        extraLight: '#ffffff',
+        dark: '#e2e8f0',
+        darker: '#cbd5e1',
+        blank: '#ffffff',
+      },
+      background: {
+        page: '#f1f5f9',
+        base: '#ffffff',
+        overlay: '#ffffff',
+      },
+      shadow: {
+        base: '0 10px 28px rgba(15, 23, 42, 0.08)',
+        light: '0 0 12px rgba(15, 23, 42, 0.10)',
+        lighter: '0 0 6px rgba(15, 23, 42, 0.08)',
+        dark: '0 18px 44px rgba(15, 23, 42, 0.16)',
+      },
+    },
+  },
+]
+
+export const defaultPresetId = themePresets[0]?.id ?? 'aura-blue'

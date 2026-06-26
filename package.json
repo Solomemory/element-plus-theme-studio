@@ -1,0 +1,20 @@
+{
+  "name": "element-plus-theme-studio",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "scripts": {
+    "dev": "pnpm --filter @element-plus-theme-studio/web dev",
+    "build": "pnpm --filter @element-plus-theme-studio/theme-builder build && pnpm --filter @element-plus-theme-studio/web build",
+    "theme:build": "pnpm --filter @element-plus-theme-studio/theme-builder theme:build",
+    "theme:zip": "pnpm --filter @element-plus-theme-studio/theme-builder theme:zip"
+  },
+  "devDependencies": {
+    "@types/archiver": "latest",
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

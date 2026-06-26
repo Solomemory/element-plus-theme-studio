@@ -1,0 +1,23 @@
+{
+  "name": "@element-plus-theme-studio/web",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vue-tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "latest",
+    "@element-plus-theme-studio/theme-builder": "workspace:*",
+    "element-plus": "latest",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "vite": "latest",
+    "vue-tsc": "latest"
+  }
+}

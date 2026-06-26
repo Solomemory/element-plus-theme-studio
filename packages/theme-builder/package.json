@@ -1,0 +1,31 @@
+{
+  "name": "@element-plus-theme-studio/theme-builder",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node -e \"require('node:fs').cpSync('src/vben','dist/vben',{recursive:true})\"",
+    "theme:build": "tsx src/cli.ts build",
+    "theme:zip": "tsx src/cli.ts zip"
+  },
+  "dependencies": {
+    "@ctrl/tinycolor": "^4.2.0",
+    "archiver": "latest",
+    "element-plus": "latest",
+    "sass": "latest",
+    "theme-colors": "^0.1.0"
+  }
+}

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+generated/
+
+*.local
+*.log
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
+apps/web/dist/
+packages/*/dist/
