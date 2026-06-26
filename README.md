@@ -1,5 +1,7 @@
 # element-plus-theme-studio
 
+[![CI](https://github.com/Solomemory/element-plus-theme-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/Solomemory/element-plus-theme-studio/actions/workflows/ci.yml)
+
 本地运行的 Element Plus 最新版主题在线编辑器和完整主题包生成工具。
 
 它解决两件事：
@@ -137,6 +139,15 @@ pnpm theme:zip --tokens examples/aura-blue.json
 ```
 
 `pnpm dev` 会启动 Web 编辑器，并提供 `/api/theme/build` 生成接口。
+
+## CI
+
+GitHub Actions 会在 `main` 分支的 push 和 pull request 时运行：
+
+- `pnpm install --frozen-lockfile`
+- `pnpm build`
+- `pnpm theme:build --tokens examples/aura-blue.json`
+- `pnpm theme:build --tokens examples/vben-admin.json`
 
 ## Element Plus 版本
 
