@@ -1558,6 +1558,272 @@ const midnightNeonDarkCss = String.raw`
 }
 `
 
+const phantomRedLightCss = String.raw`
+.studio-shell {
+  position: relative;
+  isolation: isolate;
+  color: #111111;
+  background:
+    linear-gradient(128deg, transparent 0 16%, rgba(230, 0, 18, 0.96) 16% 36%, transparent 36% 100%),
+    repeating-linear-gradient(116deg, rgba(255, 255, 255, 0.10) 0 2px, transparent 2px 18px),
+    linear-gradient(135deg, #050505 0%, #111111 45%, #e60012 45%, #e60012 60%, #050505 60% 100%);
+}
+
+.studio-shell::before {
+  content: '';
+  position: absolute;
+  inset: 82px 18px 18px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(102deg, transparent 0 11%, rgba(255, 255, 255, 0.96) 11% 18%, transparent 18% 100%),
+    linear-gradient(76deg, transparent 0 63%, rgba(230, 0, 18, 0.88) 63% 70%, transparent 70% 100%);
+  clip-path: polygon(0 3%, 100% 0, 96% 100%, 2% 96%);
+  opacity: 0.54;
+}
+
+.studio-header,
+.studio-main,
+.status-banner {
+  position: relative;
+  z-index: 1;
+}
+
+.studio-header,
+.editor-panel,
+.preview-panel,
+.preview-section,
+.el-card,
+.el-dialog,
+.el-message-box,
+.el-drawer,
+.el-popover.el-popper,
+.el-dropdown__popper .el-scrollbar,
+.el-select__popper.el-popper,
+.el-picker__popper.el-popper,
+.el-cascader__dropdown.el-popper {
+  border: 3px solid #111111;
+  border-radius: 2px;
+  background: #fffaf2;
+  box-shadow: 8px 8px 0 #111111, 12px 12px 0 rgba(230, 0, 18, 0.88);
+}
+
+.studio-header {
+  border-width: 0 0 4px;
+}
+
+.brand-block h1,
+.section-title h2,
+.preview-heading h2 {
+  color: #111111;
+  font-family: 'Oswald', 'Impact', 'Arial Narrow', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.brand-block p,
+.sample-card p,
+.token-row label,
+.feedback-label {
+  color: #2a2a2a;
+}
+
+.brand-mark,
+.swatch-item,
+.radius-demo,
+.type-demo,
+.shadow-demo,
+.loading-box,
+.carousel-panel,
+.sample-menu,
+.sample-anchor {
+  border: 2px solid #111111;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #111111;
+}
+
+.el-button:not(.is-text):not(.is-link),
+.el-tag,
+.el-alert,
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper,
+.el-input-number,
+.el-checkbox-button__inner,
+.el-radio-button__inner {
+  border: 2px solid #111111;
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 #111111;
+}
+
+.el-button:not(.is-text):not(.is-link),
+.el-tag {
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  font-family: 'Oswald', 'Impact', 'Arial Narrow', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.el-button--primary,
+.el-tag--primary {
+  color: #ffffff;
+  background: #e60012;
+}
+
+.el-button--success,
+.el-tag--success {
+  color: #ffffff;
+  background: #00a86b;
+}
+
+.el-button--warning,
+.el-tag--warning {
+  color: #111111;
+  background: #ffd400;
+}
+
+.el-button--danger,
+.el-tag--danger {
+  color: #ffffff;
+  background: #c50018;
+}
+
+.el-tabs__active-bar {
+  height: 4px;
+  background: #e60012;
+}
+
+.el-table,
+.el-table__inner-wrapper,
+.el-table th.el-table__cell,
+.el-table tr,
+.el-table td.el-table__cell {
+  background-color: transparent;
+}
+
+.el-table th.el-table__cell {
+  color: #ffffff;
+  background: #111111;
+}
+`
+
+const phantomRedDarkCss = String.raw`
+.dark .studio-shell {
+  position: relative;
+  isolation: isolate;
+  color: #fffaf2;
+  background:
+    linear-gradient(126deg, transparent 0 13%, rgba(230, 0, 18, 0.94) 13% 30%, transparent 30% 100%),
+    repeating-linear-gradient(118deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 17px),
+    linear-gradient(135deg, #000000 0%, #101010 42%, #5a0007 42%, #e60012 55%, #050505 55% 100%);
+}
+
+.dark .studio-shell::before {
+  content: '';
+  position: absolute;
+  inset: 82px 18px 18px;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(102deg, transparent 0 11%, rgba(255, 250, 242, 0.20) 11% 18%, transparent 18% 100%),
+    linear-gradient(76deg, transparent 0 63%, rgba(230, 0, 18, 0.78) 63% 70%, transparent 70% 100%);
+  clip-path: polygon(0 3%, 100% 0, 96% 100%, 2% 96%);
+  opacity: 0.72;
+}
+
+.dark .studio-header,
+.dark .studio-main,
+.dark .status-banner {
+  position: relative;
+  z-index: 1;
+}
+
+.dark .studio-header,
+.dark .editor-panel,
+.dark .preview-panel,
+.dark .preview-section,
+.dark .el-card,
+.dark .el-dialog,
+.dark .el-message-box,
+.dark .el-drawer,
+.dark .el-popover.el-popper,
+.dark .el-dropdown__popper .el-scrollbar,
+.dark .el-select__popper.el-popper,
+.dark .el-picker__popper.el-popper,
+.dark .el-cascader__dropdown.el-popper {
+  color: #fffaf2;
+  border: 3px solid #fffaf2;
+  border-radius: 2px;
+  background: #101010;
+  box-shadow: 8px 8px 0 #e60012, 12px 12px 0 rgba(0, 0, 0, 0.76);
+}
+
+.dark .studio-header {
+  border-width: 0 0 4px;
+}
+
+.dark .brand-block h1,
+.dark .section-title h2,
+.dark .preview-heading h2 {
+  color: #ffffff;
+  font-family: 'Oswald', 'Impact', 'Arial Narrow', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 #e60012;
+}
+
+.dark .brand-block p,
+.dark .sample-card p,
+.dark .token-row label,
+.dark .feedback-label {
+  color: #f3d8d8;
+}
+
+.dark .brand-mark,
+.dark .swatch-item,
+.dark .radius-demo,
+.dark .type-demo,
+.dark .shadow-demo,
+.dark .loading-box,
+.dark .carousel-panel,
+.dark .sample-menu,
+.dark .sample-anchor {
+  color: #fffaf2;
+  border: 2px solid #fffaf2;
+  border-radius: 2px;
+  background: #171717;
+  box-shadow: 5px 5px 0 #e60012;
+}
+
+.dark .el-button:not(.is-text):not(.is-link),
+.dark .el-tag,
+.dark .el-alert,
+.dark .el-input__wrapper,
+.dark .el-textarea__inner,
+.dark .el-select__wrapper,
+.dark .el-input-number,
+.dark .el-checkbox-button__inner,
+.dark .el-radio-button__inner {
+  border: 2px solid #fffaf2;
+  border-radius: 2px;
+  box-shadow: 4px 4px 0 #e60012;
+}
+
+.dark .el-button:not(.is-text):not(.is-link),
+.dark .el-tag {
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  font-family: 'Oswald', 'Impact', 'Arial Narrow', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.dark .el-table th.el-table__cell {
+  color: #111111;
+  background: #fffaf2;
+}
+`
+
 export const themePresets: ThemePreset[] = [
   {
     id: 'aura-blue',
@@ -2420,6 +2686,101 @@ export const themePresets: ThemePreset[] = [
       cssOverrides: {
         light: midnightNeonLightCss,
         dark: midnightNeonDarkCss,
+      },
+    },
+  },
+  {
+    id: 'phantom-red',
+    label: {
+      'zh-CN': '怪盗红',
+      'en-US': 'Phantom Red',
+    },
+    swatches: ['#e60012', '#111111', '#fffaf2'],
+    tokens: {
+      name: 'Phantom Red',
+      packageName: '@local/element-plus-theme-phantom-red',
+      elementPlusVersion: 'latest',
+      colors: {
+        white: '#fffaf2',
+        black: '#111111',
+        primary: '#e60012',
+        success: '#00a86b',
+        warning: '#ffd400',
+        danger: '#c50018',
+        error: '#c50018',
+        info: '#111111',
+      },
+      radius: {
+        base: '2px',
+        small: '0',
+        round: '9999px',
+        circle: '100%',
+      },
+      text: {
+        primary: '#111111',
+        regular: '#2a2a2a',
+        secondary: '#565656',
+        placeholder: '#8a8a8a',
+        disabled: '#c9c4bb',
+      },
+      border: {
+        base: '#111111',
+        light: '#2a2a2a',
+        lighter: '#e7ddd2',
+        extraLight: '#fff2e3',
+        dark: '#000000',
+        darker: '#000000',
+        width: '2px',
+        style: 'solid',
+        hover: '#e60012',
+      },
+      fill: {
+        base: '#fff0df',
+        light: '#fff5ea',
+        lighter: '#fffaf2',
+        extraLight: '#ffffff',
+        dark: '#e7ddd2',
+        darker: '#d7c9ba',
+        blank: '#fffaf2',
+      },
+      background: {
+        page: '#111111',
+        base: '#fffaf2',
+        overlay: '#fffaf2',
+      },
+      shadow: {
+        base: '8px 8px 0 #111111, 12px 12px 0 rgba(230, 0, 18, 0.88)',
+        light: '5px 5px 0 #111111',
+        lighter: '3px 3px 0 #111111',
+        dark: '10px 10px 0 #111111, 15px 15px 0 rgba(230, 0, 18, 0.92)',
+      },
+      typography: {
+        fontFamily:
+          "'Oswald', 'Impact', 'Arial Narrow', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
+        extraLarge: '22px',
+        large: '19px',
+        medium: '16px',
+        base: '14px',
+        small: '13px',
+        extraSmall: '12px',
+      },
+      componentSize: {
+        large: '42px',
+        default: '34px',
+        small: '26px',
+      },
+      overlay: {
+        base: 'rgba(0, 0, 0, 0.86)',
+        light: 'rgba(0, 0, 0, 0.70)',
+        lighter: 'rgba(0, 0, 0, 0.50)',
+      },
+      mask: {
+        base: 'rgba(255, 250, 242, 0.88)',
+        extraLight: 'rgba(255, 250, 242, 0.34)',
+      },
+      cssOverrides: {
+        light: phantomRedLightCss,
+        dark: phantomRedDarkCss,
       },
     },
   },
