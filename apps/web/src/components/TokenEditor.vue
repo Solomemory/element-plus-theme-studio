@@ -333,6 +333,7 @@ const typeSections: Section[] = [
     title: 'Typography',
     titleKey: 'typography',
     fields: [
+      { path: 'typography.htmlFontSize', label: 'HTML Font Size', labelKey: 'htmlFontSize' },
       { path: 'typography.fontFamily', label: 'Family', kind: 'textarea' },
       { path: 'typography.extraLarge', label: 'Extra Large' },
       { path: 'typography.large', label: 'Large' },

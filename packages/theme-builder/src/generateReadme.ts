@@ -104,6 +104,8 @@ pnpm theme:build --tokens ./dist/tokens.json
 
 如果要在主题编辑器网页中继续编辑，点击“导入 JSON”，选择这个 \`tokens.json\` 即可。
 
+\`typography.htmlFontSize\` 会生成 \`html\` 根字号，并同步写入 \`--studio-html-font-size\` / \`--font-size-base\`，适合使用 \`rem\` 体系、Vben 兼容样式或需要统一调整页面根字号的项目。
+
 ## 自定义 CSS 覆盖
 
 当 \`tokens.json\` 中存在 \`cssOverrides.light\` 或 \`cssOverrides.dark\` 时，它们会被追加到 \`dist/index.css\` 和 \`dist/dark.css\`。这适合处理 Element Plus Sass 变量没有暴露的组件细节。
@@ -122,6 +124,15 @@ ${tokens.compatibility.vben ? '## Vben Admin Compatibility\n\nThis package inclu
 );
 
 @use 'element-plus/theme-chalk/src/index.scss' as *;
+
+:root {
+  --studio-html-font-size: ${tokens.typography.htmlFontSize};
+  --font-size-base: ${tokens.typography.htmlFontSize};
+}
+
+html {
+  font-size: var(--studio-html-font-size);
+}
 \`\`\`
 `
 }

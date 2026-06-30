@@ -5,7 +5,7 @@ const stateColorKeys = ['primary', 'success', 'warning', 'danger', 'error', 'inf
 
 export function applyElementCssVars(tokens: ThemeTokens): void {
   const style = ensureStyleElement()
-  style.textContent = `:root {\n${formatVars(buildCssVars(tokens))}\n}\n\n.dark {\n${formatVars(
+  style.textContent = `html {\n  font-size: ${tokens.typography.htmlFontSize};\n}\n\n:root {\n${formatVars(buildCssVars(tokens))}\n}\n\n.dark {\n${formatVars(
     buildDarkCssVars(tokens),
   )}\n}\n${formatCssOverrides(tokens)}`
 }
@@ -44,6 +44,8 @@ export function buildCssVars(tokens: ThemeTokens): Record<string, string> {
     '--el-box-shadow-light': tokens.shadow.light,
     '--el-box-shadow-lighter': tokens.shadow.lighter,
     '--el-box-shadow-dark': tokens.shadow.dark,
+    '--studio-html-font-size': tokens.typography.htmlFontSize,
+    '--font-size-base': tokens.typography.htmlFontSize,
     '--el-font-family': tokens.typography.fontFamily,
     '--el-font-size-extra-large': tokens.typography.extraLarge,
     '--el-font-size-large': tokens.typography.large,
@@ -99,6 +101,8 @@ export function buildDarkCssVars(tokens: ThemeTokens): Record<string, string> {
     '--el-border-radius-small': tokens.radius.small,
     '--el-border-radius-round': tokens.radius.round,
     '--el-border-radius-circle': tokens.radius.circle,
+    '--studio-html-font-size': tokens.typography.htmlFontSize,
+    '--font-size-base': tokens.typography.htmlFontSize,
     '--el-font-family': tokens.typography.fontFamily,
     '--el-font-size-extra-large': tokens.typography.extraLarge,
     '--el-font-size-large': tokens.typography.large,

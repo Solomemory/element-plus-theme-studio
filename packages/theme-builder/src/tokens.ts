@@ -59,6 +59,7 @@ export interface ThemeTokens {
     dark: string
   }
   typography: {
+    htmlFontSize: string
     fontFamily: string
     extraLarge: string
     large: string
@@ -161,6 +162,7 @@ export const DEFAULT_TOKENS: ThemeTokens = {
     dark: '0 16px 48px 16px rgba(15, 23, 42, 0.08), 0 12px 32px rgba(15, 23, 42, 0.12)',
   },
   typography: {
+    htmlFontSize: '16px',
     fontFamily:
       "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
     extraLarge: '20px',

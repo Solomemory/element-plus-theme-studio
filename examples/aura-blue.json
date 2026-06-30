@@ -30,5 +30,8 @@
     "page": "#f8fafc",
     "base": "#ffffff",
     "overlay": "#ffffff"
+  },
+  "typography": {
+    "htmlFontSize": "16px"
   }
 }

@@ -17,7 +17,7 @@
         <div class="radius-demo round" :style="{ borderRadius: tokens.radius.round }">Round radius</div>
         <div class="type-demo" :style="{ fontFamily: tokens.typography.fontFamily }">
           <strong>Typography</strong>
-          <span>{{ tokens.typography.extraLarge }} / {{ tokens.typography.base }} / {{ tokens.typography.extraSmall }}</span>
+          <span>HTML {{ tokens.typography.htmlFontSize }} / {{ tokens.typography.extraLarge }} / {{ tokens.typography.base }} / {{ tokens.typography.extraSmall }}</span>
         </div>
         <div class="shadow-demo" :style="{ boxShadow: tokens.shadow.light }">Shadow</div>
       </div>
