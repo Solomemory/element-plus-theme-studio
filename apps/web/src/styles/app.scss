@@ -223,14 +223,6 @@ a {
   margin-bottom: 12px;
 }
 
-.density-control {
-  width: 100%;
-}
-
-.density-control .el-segmented__item {
-  min-width: 0;
-}
-
 .token-list {
   display: grid;
   gap: 12px;
@@ -252,25 +244,6 @@ a {
   grid-template-columns: 36px minmax(0, 1fr);
   align-items: center;
   gap: 8px;
-}
-
-.font-size-control {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 8px;
-}
-
-.font-size-control .el-input-number {
-  width: 100%;
-}
-
-.font-size-unit {
-  min-width: 28px;
-  color: var(--el-text-color-secondary);
-  font-size: 12px;
-  font-weight: 650;
-  text-align: right;
 }
 
 .field-error {

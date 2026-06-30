@@ -20,17 +20,6 @@ ${entries.map((entry) => indent(entry, 2)).join(',\n')}
 );
 
 @use '${imports.indexScss}' as *;
-
-:root {
-  --studio-root-font-size: ${tokens.typography.htmlFontSize};
-  --studio-html-font-size: ${tokens.typography.htmlFontSize};
-  --studio-font-size-base: ${tokens.typography.base};
-  --font-size-base: ${tokens.typography.base};
-}
-
-html {
-  font-size: var(--studio-root-font-size);
-}
 `
 }
 
@@ -127,10 +116,6 @@ export function generatePreviewCssVars(tokens: ThemeTokens): Record<string, stri
     '--el-box-shadow-light': tokens.shadow.light,
     '--el-box-shadow-lighter': tokens.shadow.lighter,
     '--el-box-shadow-dark': tokens.shadow.dark,
-    '--studio-root-font-size': tokens.typography.htmlFontSize,
-    '--studio-html-font-size': tokens.typography.htmlFontSize,
-    '--studio-font-size-base': tokens.typography.base,
-    '--font-size-base': tokens.typography.base,
     '--el-font-family': tokens.typography.fontFamily,
     '--el-font-size-extra-large': tokens.typography.extraLarge,
     '--el-font-size-large': tokens.typography.large,

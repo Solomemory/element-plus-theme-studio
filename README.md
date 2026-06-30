@@ -36,7 +36,7 @@ If the workflow shows `Get Pages site failed` or `HttpError: Not Found`, the rep
 
 ## Features
 
-- Visual editing for Element Plus theme tokens: colors, text, borders, backgrounds, radius, shadows, sizes, density, HTML font size, Sass variables, and CSS overrides
+- Visual editing for Element Plus theme tokens: colors, text, borders, backgrounds, radius, shadows, sizes, Sass variables, and CSS overrides
 - Token editor tabs for better navigation, with independent scrolling for the editor and preview panes
 - Real-time previews for common Element Plus components across forms, actions, feedback, navigation, data display, content, and overlays
 - Light and dark theme preview with generated `dark.css`
@@ -74,7 +74,7 @@ http://localhost:5173/
 ## How To Use
 
 1. Choose a preset from the top toolbar, or click `Random Theme` to generate a new theme.
-2. Edit density, colors, radius, backgrounds, text, borders, HTML font size, Sass variables, and CSS overrides in the left token panel.
+2. Edit colors, radius, backgrounds, text, borders, Sass variables, and CSS overrides in the left token panel.
 3. Review Element Plus component previews on the right.
 4. Toggle light and dark mode from the top toolbar.
 5. Click `Export JSON` to save the current theme source configuration.
@@ -83,17 +83,6 @@ http://localhost:5173/
 ## JSON And ZIP
 
 `tokens.json` is the source configuration for a theme. It is useful for saving, reviewing, sharing, versioning, and regenerating theme packages. It is not the final CSS file imported by your application.
-
-`density` controls the editor's semantic sizing modes: `compact`, `default`, `comfortable`, and `large`. Switching density updates `typography.htmlFontSize`, Element Plus typography tokens, and component height tokens together.
-
-`typography.htmlFontSize` is still available as an advanced root font-size token and syncs `--studio-root-font-size` / `--studio-html-font-size`. `--studio-font-size-base` / `--font-size-base` track `typography.base`.
-
-Recommended sizing strategy:
-
-- Use `density` as the primary control for system UI scale.
-- Keep Element Plus typography, component sizes, borders, and hairline details in `px` for predictable forms, tables, and overlays.
-- Use `htmlFontSize` only as an advanced root baseline for products that already rely on `rem`.
-- Use `rem` mainly in application layout or custom content CSS, not as the default unit for every Element Plus token.
 
 In the web app:
 

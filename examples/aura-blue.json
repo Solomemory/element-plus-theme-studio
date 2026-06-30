@@ -2,7 +2,6 @@
   "name": "Aura Blue",
   "packageName": "@local/element-plus-theme-aura-blue",
   "elementPlusVersion": "latest",
-  "density": "default",
   "colors": {
     "primary": "#2563eb",
     "success": "#16a34a",
@@ -31,8 +30,5 @@
     "page": "#f8fafc",
     "base": "#ffffff",
     "overlay": "#ffffff"
-  },
-  "typography": {
-    "htmlFontSize": "16px"
   }
 }

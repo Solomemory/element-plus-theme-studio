@@ -104,10 +104,6 @@ pnpm theme:build --tokens ./dist/tokens.json
 
 如果要在主题编辑器网页中继续编辑，点击“导入 JSON”，选择这个 \`tokens.json\` 即可。
 
-\`density\` 表示主题的语义化尺寸模式：\`compact\`、\`default\`、\`comfortable\` 或 \`large\`。它会影响 \`typography.htmlFontSize\`、Element Plus 字号 token 和组件高度 token。
-
-\`typography.htmlFontSize\` 仍然作为高级根字号 token 保留，并同步写入 \`--studio-root-font-size\` / \`--studio-html-font-size\`。\`--studio-font-size-base\` / \`--font-size-base\` 会对应 \`typography.base\`。Element Plus 字号、组件高度、边框和细线细节建议保持 \`px\`，\`rem\` 更适合放在业务布局或自定义内容 CSS 中。
-
 ## 自定义 CSS 覆盖
 
 当 \`tokens.json\` 中存在 \`cssOverrides.light\` 或 \`cssOverrides.dark\` 时，它们会被追加到 \`dist/index.css\` 和 \`dist/dark.css\`。这适合处理 Element Plus Sass 变量没有暴露的组件细节。
@@ -126,17 +122,6 @@ ${tokens.compatibility.vben ? '## Vben Admin Compatibility\n\nThis package inclu
 );
 
 @use 'element-plus/theme-chalk/src/index.scss' as *;
-
-:root {
-  --studio-root-font-size: ${tokens.typography.htmlFontSize};
-  --studio-html-font-size: ${tokens.typography.htmlFontSize};
-  --studio-font-size-base: ${tokens.typography.base};
-  --font-size-base: ${tokens.typography.base};
-}
-
-html {
-  font-size: var(--studio-root-font-size);
-}
 \`\`\`
 `
 }

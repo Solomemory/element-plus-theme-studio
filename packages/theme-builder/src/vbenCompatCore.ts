@@ -81,8 +81,7 @@ export function generateVbenElementPlusVars(mode: 'light' | 'dark'): string {
     '--el-box-shadow-lighter': '0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%)',
     '--el-box-shadow-dark': '0 20px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%)',
     '--el-font-family': 'var(--font-family)',
-    '--font-size-base': 'var(--studio-font-size-base, 16px)',
-    '--el-font-size-base': 'var(--studio-font-size-base, var(--font-size-base))',
+    '--el-font-size-base': 'var(--font-size-base)',
     '--el-index-popper': 'var(--popup-z-index)',
   }
 
@@ -113,7 +112,7 @@ html {
   color: hsl(var(--foreground));
   background: hsl(var(--background));
   font-family: var(--font-family);
-  font-size: var(--studio-root-font-size, var(--studio-html-font-size, var(--font-size-base, 16px)));
+  font-size: var(--font-size-base, 16px);
   font-synthesis-weight: none;
   font-variation-settings: normal;
   line-height: 1.15;
