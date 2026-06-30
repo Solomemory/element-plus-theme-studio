@@ -165,12 +165,12 @@ export const DEFAULT_TOKENS: ThemeTokens = {
     htmlFontSize: '16px',
     fontFamily:
       "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
-    extraLarge: '20px',
-    large: '18px',
-    medium: '16px',
-    base: '14px',
-    small: '13px',
-    extraSmall: '12px',
+    extraLarge: '1.25rem',
+    large: '1.125rem',
+    medium: '1rem',
+    base: '0.875rem',
+    small: '0.8125rem',
+    extraSmall: '0.75rem',
   },
   componentSize: {
     large: '40px',

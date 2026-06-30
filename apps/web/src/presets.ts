@@ -2371,7 +2371,34 @@ const presetHtmlFontSizes: Record<string, string> = {
   'graphite-pro': '16px',
 }
 
-function applyPresetHtmlFontSize(preset: ThemePreset): ThemePreset {
+const typographySizeKeys = ['extraLarge', 'large', 'medium', 'base', 'small', 'extraSmall'] as const
+
+function pxToRem(value: unknown): unknown {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  const match = value.match(/^([0-9]+(?:\.[0-9]+)?)px$/)
+  if (!match) {
+    return value
+  }
+
+  const remValue = Number(match[1]) / 16
+  const normalized = Number.isInteger(remValue) ? String(remValue) : String(Number(remValue.toFixed(4)))
+  return `${normalized}rem`
+}
+
+function normalizeTypographyScale(typography: Record<string, unknown>): Record<string, unknown> {
+  return typographySizeKeys.reduce(
+    (result, key) => ({
+      ...result,
+      [key]: pxToRem(result[key]),
+    }),
+    { ...typography },
+  )
+}
+
+function applyPresetTypographySettings(preset: ThemePreset): ThemePreset {
   const tokens = preset.tokens
   if (!tokens || typeof tokens !== 'object') {
     return preset
@@ -2386,7 +2413,7 @@ function applyPresetHtmlFontSize(preset: ThemePreset): ThemePreset {
     tokens: {
       ...tokenObject,
       typography: {
-        ...typographyObject,
+        ...normalizeTypographyScale(typographyObject),
         htmlFontSize: presetHtmlFontSizes[preset.id] ?? '16px',
       },
     },
@@ -4196,6 +4223,6 @@ export const themePresets: ThemePreset[] = [
       },
     },
   },
-].map(applyPresetHtmlFontSize)
+].map(applyPresetTypographySettings)
 
 export const defaultPresetId = themePresets[0]?.id ?? 'aura-blue'

@@ -84,12 +84,12 @@ http://localhost:5173/
 
 `tokens.json` 是主题源配置文件，适合保存、审查、共享、版本管理和二次生成主题包。它不是业务项目直接引入的最终 CSS 文件。
 
-`typography.htmlFontSize` 会生成 `html` 根字号，并同步写入 `--studio-html-font-size` / `--font-size-base`，适合使用 `rem` 体系、Vben 兼容样式或需要统一调整页面根字号的项目。
+`typography.htmlFontSize` 会生成 `html` 根字号，并同步写入 `--studio-root-font-size` / `--studio-html-font-size`。内置预设的 typography 字号使用 `rem`，`--studio-font-size-base` / `--font-size-base` 会对应 `typography.base`。
 
 推荐的尺寸策略：
 
 - 把 `htmlFontSize` 当成页面级密度基准。大多数后台主题保持 `16px`；偏展示的主题可以用 `17px`；数据大屏可以用 `18px`。
-- 页面布局、外壳间距、自定义内容排版、需要跟随根字号缩放的区域，适合使用 `rem`。
+- 页面布局、外壳间距、自定义内容排版、需要跟随根字号缩放的区域，适合使用 `rem`。内置预设会把 `typography.extraLarge`、`typography.large`、`typography.medium`、`typography.base`、`typography.small`、`typography.extraSmall` 作为 `rem` 字号输出。
 - Element Plus 的组件几何 token，例如边框、控件高度、图标尺寸和细线细节，通常继续保留 `px`，除非产品明确需要整体缩放。
 - 不建议把所有 token 都转成 `rem`；表单、表格、弹窗和混合第三方组件会更难对齐。
 

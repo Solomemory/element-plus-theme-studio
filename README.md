@@ -84,12 +84,12 @@ http://localhost:5173/
 
 `tokens.json` is the source configuration for a theme. It is useful for saving, reviewing, sharing, versioning, and regenerating theme packages. It is not the final CSS file imported by your application.
 
-`typography.htmlFontSize` controls the generated `html` root font-size and syncs `--studio-html-font-size` / `--font-size-base`. Use it when your app relies on `rem` scaling, Vben-compatible styles, or a shared page font-size baseline.
+`typography.htmlFontSize` controls the generated `html` root font-size and syncs `--studio-root-font-size` / `--studio-html-font-size`. Typography tokens use `rem` in the built-in presets, while `--studio-font-size-base` / `--font-size-base` track `typography.base`.
 
 Recommended sizing strategy:
 
 - Use `htmlFontSize` as the page-level density baseline. Most admin themes should stay at `16px`; display-oriented themes can use `17px`; large-screen dashboards can use `18px`.
-- Use `rem` for app layout spacing, page shells, custom typography, and content areas that should scale with the root font-size.
+- Use `rem` for app layout spacing, page shells, custom typography, and content areas that should scale with the root font-size. Built-in presets use `rem` for `typography.extraLarge`, `typography.large`, `typography.medium`, `typography.base`, `typography.small`, and `typography.extraSmall`.
 - Keep Element Plus component geometry tokens such as borders, control heights, icons, and hairline details in `px` unless the product explicitly needs full zoom-like scaling.
 - Avoid converting every token to `rem`; it usually makes forms, tables, popups, and mixed third-party components harder to align.
 
