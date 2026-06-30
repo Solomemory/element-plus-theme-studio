@@ -86,6 +86,13 @@ http://localhost:5173/
 
 `typography.htmlFontSize` controls the generated `html` root font-size and syncs `--studio-html-font-size` / `--font-size-base`. Use it when your app relies on `rem` scaling, Vben-compatible styles, or a shared page font-size baseline.
 
+Recommended sizing strategy:
+
+- Use `htmlFontSize` as the page-level density baseline. Most admin themes should stay at `16px`; display-oriented themes can use `17px`; large-screen dashboards can use `18px`.
+- Use `rem` for app layout spacing, page shells, custom typography, and content areas that should scale with the root font-size.
+- Keep Element Plus component geometry tokens such as borders, control heights, icons, and hairline details in `px` unless the product explicitly needs full zoom-like scaling.
+- Avoid converting every token to `rem`; it usually makes forms, tables, popups, and mixed third-party components harder to align.
+
 In the web app:
 
 - `Import JSON`: restore a previously exported theme configuration

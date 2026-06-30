@@ -106,6 +106,8 @@ pnpm theme:build --tokens ./dist/tokens.json
 
 \`typography.htmlFontSize\` 会生成 \`html\` 根字号，并同步写入 \`--studio-html-font-size\` / \`--font-size-base\`，适合使用 \`rem\` 体系、Vben 兼容样式或需要统一调整页面根字号的项目。
 
+建议把 \`htmlFontSize\` 当成页面级密度基准：后台系统通常保持 \`16px\`，展示型主题可以使用 \`17px\`，数据大屏可以使用 \`18px\`。页面布局和自定义内容适合跟随 \`rem\` 缩放；Element Plus 控件高度、边框、图标和细线细节通常继续保留 \`px\`，避免表单、表格和弹窗难以对齐。
+
 ## 自定义 CSS 覆盖
 
 当 \`tokens.json\` 中存在 \`cssOverrides.light\` 或 \`cssOverrides.dark\` 时，它们会被追加到 \`dist/index.css\` 和 \`dist/dark.css\`。这适合处理 Element Plus Sass 变量没有暴露的组件细节。

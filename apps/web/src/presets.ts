@@ -2352,6 +2352,47 @@ const cupertinoMinimalDarkCss = String.raw`
 }
 `
 
+const presetHtmlFontSizes: Record<string, string> = {
+  'aura-blue': '16px',
+  'glass-aurora': '17px',
+  'cupertino-minimal': '17px',
+  'data-wall': '18px',
+  'neo-brutal': '17px',
+  'clay-pop': '17px',
+  'soft-neumorph': '16px',
+  'mono-editorial': '17px',
+  'bento-mint': '16px',
+  'flat-candy': '16px',
+  'midnight-neon': '17px',
+  'phantom-red': '17px',
+  'vben-admin': '16px',
+  'emerald-console': '16px',
+  'rose-quartz': '16px',
+  'graphite-pro': '16px',
+}
+
+function applyPresetHtmlFontSize(preset: ThemePreset): ThemePreset {
+  const tokens = preset.tokens
+  if (!tokens || typeof tokens !== 'object') {
+    return preset
+  }
+
+  const tokenObject = tokens as Record<string, unknown>
+  const typography = tokenObject.typography
+  const typographyObject = typography && typeof typography === 'object' ? (typography as Record<string, unknown>) : {}
+
+  return {
+    ...preset,
+    tokens: {
+      ...tokenObject,
+      typography: {
+        ...typographyObject,
+        htmlFontSize: presetHtmlFontSizes[preset.id] ?? '16px',
+      },
+    },
+  }
+}
+
 export const themePresets: ThemePreset[] = [
   {
     id: 'aura-blue',
@@ -4155,6 +4196,6 @@ export const themePresets: ThemePreset[] = [
       },
     },
   },
-]
+].map(applyPresetHtmlFontSize)
 
 export const defaultPresetId = themePresets[0]?.id ?? 'aura-blue'
