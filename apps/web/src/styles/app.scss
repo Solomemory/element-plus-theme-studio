@@ -246,6 +246,25 @@ a {
   gap: 8px;
 }
 
+.font-size-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.font-size-control .el-input-number {
+  width: 100%;
+}
+
+.font-size-unit {
+  min-width: 28px;
+  color: var(--el-text-color-secondary);
+  font-size: 12px;
+  font-weight: 650;
+  text-align: right;
+}
+
 .field-error {
   margin: 0;
   color: #dc2626;

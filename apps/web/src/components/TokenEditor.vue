@@ -177,7 +177,7 @@ import '@your-scope/element-plus-theme-custom/dist/dark.css'</code></pre>
 
 <script setup lang="ts">
 import { computed, defineComponent, h, ref } from 'vue'
-import { ElColorPicker, ElInput } from 'element-plus'
+import { ElColorPicker, ElInput, ElInputNumber } from 'element-plus'
 import {
   SASS_VARIABLES,
   type SassVariableCategory,
@@ -199,7 +199,10 @@ interface Field {
   label: string
   labelKey?: MessageKey
   placeholderKey?: MessageKey
-  kind?: 'color' | 'textarea'
+  kind?: 'color' | 'textarea' | 'font-size-stepper'
+  min?: number
+  max?: number
+  step?: number
 }
 
 interface Section {
@@ -333,7 +336,15 @@ const typeSections: Section[] = [
     title: 'Typography',
     titleKey: 'typography',
     fields: [
-      { path: 'typography.htmlFontSize', label: 'HTML Font Size', labelKey: 'htmlFontSize' },
+      {
+        path: 'typography.htmlFontSize',
+        label: 'HTML Font Size',
+        labelKey: 'htmlFontSize',
+        kind: 'font-size-stepper',
+        min: 1,
+        max: 64,
+        step: 1,
+      },
       { path: 'typography.fontFamily', label: 'Family', kind: 'textarea' },
       { path: 'typography.extraLarge', label: 'Extra Large' },
       { path: 'typography.large', label: 'Large' },
@@ -413,6 +424,26 @@ function emitUpdate(path: string, value: string | number): void {
   emit('update', path, String(value))
 }
 
+function parseLengthNumber(value: string, fallback = 16): number {
+  const match = value.trim().match(/^([0-9]+(?:\.[0-9]+)?)(px|rem|em|%)?$/)
+  return match ? Number(match[1]) : fallback
+}
+
+function parseLengthUnit(value: string, fallback = 'px'): string {
+  const match = value.trim().match(/^[0-9]+(?:\.[0-9]+)?(px|rem|em|%)?$/)
+  return match?.[1] || fallback
+}
+
+function formatSteppedLength(originalValue: string, nextValue: number | undefined, fallbackUnit = 'px'): string {
+  if (typeof nextValue !== 'number' || Number.isNaN(nextValue)) {
+    return originalValue
+  }
+
+  const unit = parseLengthUnit(originalValue, fallbackUnit)
+  const normalized = Number.isInteger(nextValue) ? String(nextValue) : String(Number(nextValue.toFixed(2)))
+  return `${normalized}${unit}`
+}
+
 const TokenSection = defineComponent({
   props: {
     section: {
@@ -463,34 +494,9 @@ const TokenSection = defineComponent({
           sectionProps.section.fields.map((field) =>
             h('div', { key: field.path, class: 'token-row' }, [
               h('label', { for: field.path }, field.labelKey ? t(field.labelKey) : field.label),
-              field.kind === 'color'
-                ? h('div', { class: 'token-control' }, [
-                    h(ElColorPicker, {
-                      modelValue: sectionValue(field.path),
-                      predefine: predefinedColors,
-                      onChange: (value: string | null) => sectionEmit('update', field.path, value || ''),
-                    }),
-                    h(ElInput, {
-                      id: field.path,
-                      modelValue: sectionValue(field.path),
-                      spellcheck: false,
-                      onInput: (value: string) => sectionEmit('update', field.path, value),
-                    }),
-                  ])
-                : h(ElInput, {
-                    id: field.path,
-                    modelValue: sectionValue(field.path),
-                    type: field.kind === 'textarea' ? 'textarea' : undefined,
-                    autosize:
-                      field.kind === 'textarea'
-                        ? field.path.startsWith('cssOverrides.')
-                          ? { minRows: 8, maxRows: 16 }
-                          : { minRows: 2, maxRows: 5 }
-                        : undefined,
-                    placeholder: field.placeholderKey ? t(field.placeholderKey) : undefined,
-                    spellcheck: false,
-                    onInput: (value: string) => sectionEmit('update', field.path, value),
-                  }),
+              renderTokenField(field, sectionValue(field.path), predefinedColors, (value) =>
+                sectionEmit('update', field.path, value),
+              ),
               sectionIssue(field.path) ? h('p', { class: 'field-error' }, sectionIssue(field.path)) : null,
             ]),
           ),
@@ -498,4 +504,58 @@ const TokenSection = defineComponent({
       ])
   },
 })
+
+function renderTokenField(
+  field: Field,
+  value: string,
+  predefinedColors: string[],
+  onUpdate: (value: string) => void,
+) {
+  if (field.kind === 'color') {
+    return h('div', { class: 'token-control' }, [
+      h(ElColorPicker, {
+        modelValue: value,
+        predefine: predefinedColors,
+        onChange: (nextValue: string | null) => onUpdate(nextValue || ''),
+      }),
+      h(ElInput, {
+        id: field.path,
+        modelValue: value,
+        spellcheck: false,
+        onInput: (nextValue: string) => onUpdate(nextValue),
+      }),
+    ])
+  }
+
+  if (field.kind === 'font-size-stepper') {
+    return h('div', { class: 'font-size-control' }, [
+      h(ElInputNumber, {
+        id: field.path,
+        modelValue: parseLengthNumber(value),
+        min: field.min,
+        max: field.max,
+        step: field.step ?? 1,
+        stepStrictly: false,
+        controls: true,
+        onChange: (nextValue: number | undefined) => onUpdate(formatSteppedLength(value, nextValue)),
+      }),
+      h('span', { class: 'font-size-unit' }, parseLengthUnit(value)),
+    ])
+  }
+
+  return h(ElInput, {
+    id: field.path,
+    modelValue: value,
+    type: field.kind === 'textarea' ? 'textarea' : undefined,
+    autosize:
+      field.kind === 'textarea'
+        ? field.path.startsWith('cssOverrides.')
+          ? { minRows: 8, maxRows: 16 }
+          : { minRows: 2, maxRows: 5 }
+        : undefined,
+    placeholder: field.placeholderKey ? t(field.placeholderKey) : undefined,
+    spellcheck: false,
+    onInput: (nextValue: string) => onUpdate(nextValue),
+  })
+}
 </script>
