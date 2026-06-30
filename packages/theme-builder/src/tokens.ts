@@ -1,9 +1,14 @@
 import { createEmptyScssOverrides } from './tokenCatalog.js'
 
+export const THEME_DENSITIES = ['compact', 'default', 'comfortable', 'large'] as const
+
+export type ThemeDensity = (typeof THEME_DENSITIES)[number]
+
 export interface ThemeTokens {
   name: string
   packageName: string
   elementPlusVersion: string
+  density: ThemeDensity
   colors: {
     white: string
     black: string
@@ -107,6 +112,7 @@ export const DEFAULT_TOKENS: ThemeTokens = {
   name: 'Aura Blue',
   packageName: '@local/element-plus-theme-aura-blue',
   elementPlusVersion: 'latest',
+  density: 'default',
   colors: {
     white: '#ffffff',
     black: '#000000',
@@ -165,12 +171,12 @@ export const DEFAULT_TOKENS: ThemeTokens = {
     htmlFontSize: '16px',
     fontFamily:
       "'Inter', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif",
-    extraLarge: '1.25rem',
-    large: '1.125rem',
-    medium: '1rem',
-    base: '0.875rem',
-    small: '0.8125rem',
-    extraSmall: '0.75rem',
+    extraLarge: '20px',
+    large: '18px',
+    medium: '16px',
+    base: '14px',
+    small: '13px',
+    extraSmall: '12px',
   },
   componentSize: {
     large: '40px',
@@ -208,6 +214,80 @@ const radiusKeys = ['base', 'small', 'round', 'circle'] as const
 const lengthSections = ['radius', 'typography', 'componentSize', 'breakpoints'] as const
 const rootStringKeys = ['name', 'packageName', 'elementPlusVersion'] as const
 
+export const DENSITY_TOKEN_PRESETS: Record<
+  ThemeDensity,
+  {
+    htmlFontSize: string
+    typography: Omit<ThemeTokens['typography'], 'fontFamily' | 'htmlFontSize'>
+    componentSize: ThemeTokens['componentSize']
+  }
+> = {
+  compact: {
+    htmlFontSize: '15px',
+    typography: {
+      extraLarge: '18px',
+      large: '16px',
+      medium: '15px',
+      base: '13px',
+      small: '12px',
+      extraSmall: '11px',
+    },
+    componentSize: {
+      large: '38px',
+      default: '30px',
+      small: '22px',
+    },
+  },
+  default: {
+    htmlFontSize: '16px',
+    typography: {
+      extraLarge: '20px',
+      large: '18px',
+      medium: '16px',
+      base: '14px',
+      small: '13px',
+      extraSmall: '12px',
+    },
+    componentSize: {
+      large: '40px',
+      default: '32px',
+      small: '24px',
+    },
+  },
+  comfortable: {
+    htmlFontSize: '17px',
+    typography: {
+      extraLarge: '21px',
+      large: '19px',
+      medium: '17px',
+      base: '15px',
+      small: '14px',
+      extraSmall: '13px',
+    },
+    componentSize: {
+      large: '42px',
+      default: '34px',
+      small: '26px',
+    },
+  },
+  large: {
+    htmlFontSize: '18px',
+    typography: {
+      extraLarge: '22px',
+      large: '20px',
+      medium: '18px',
+      base: '16px',
+      small: '15px',
+      extraSmall: '14px',
+    },
+    componentSize: {
+      large: '44px',
+      default: '36px',
+      small: '28px',
+    },
+  },
+}
+
 export class ThemeValidationError extends Error {
   constructor(public readonly issues: TokenIssue[]) {
     super(issues.map((issue) => `${issue.path}: ${issue.message}`).join('\n'))
@@ -225,6 +305,10 @@ export function isHexColor(value: string): boolean {
 
 export function isCssLength(value: string): boolean {
   return /^(?:0|[0-9]+(?:\.[0-9]+)?(?:px|rem|em|%)|9999px)$/.test(value)
+}
+
+export function isThemeDensity(value: unknown): value is ThemeDensity {
+  return typeof value === 'string' && (THEME_DENSITIES as readonly string[]).includes(value)
 }
 
 export function isValidPackageName(value: string): boolean {
@@ -245,6 +329,10 @@ export function slugifyPackageName(packageName: string): string {
 export function mergeThemeTokens(input: unknown): ThemeTokens {
   const merged = cloneThemeTokens()
   if (!isRecord(input)) return merged
+
+  if (isThemeDensity(input.density)) {
+    assignDensityTokens(merged, input.density)
+  }
 
   for (const key of rootStringKeys) {
     if (typeof input[key] === 'string') {
@@ -313,8 +401,26 @@ export function mergeThemeTokens(input: unknown): ThemeTokens {
   return merged
 }
 
+export function assignDensityTokens(tokens: ThemeTokens, density: ThemeDensity): void {
+  const preset = DENSITY_TOKEN_PRESETS[density]
+  tokens.density = density
+  tokens.typography.htmlFontSize = preset.htmlFontSize
+  Object.assign(tokens.typography, preset.typography)
+  Object.assign(tokens.componentSize, preset.componentSize)
+}
+
+export function applyThemeDensity(tokens: ThemeTokens, density: ThemeDensity): ThemeTokens {
+  const next = cloneThemeTokens(tokens)
+  assignDensityTokens(next, density)
+  return next
+}
+
 export function validateThemeTokens(tokens: ThemeTokens): TokenIssue[] {
   const issues: TokenIssue[] = []
+
+  if (!isThemeDensity(tokens.density)) {
+    issues.push({ path: 'density', message: 'Use compact, default, comfortable, or large.' })
+  }
 
   if (!tokens.name.trim()) {
     issues.push({ path: 'name', message: 'Theme name is required.' })

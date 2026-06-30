@@ -70,6 +70,14 @@ import '@your-scope/element-plus-theme-custom/dist/dark.css'</code></pre>
                 {{ t('variables') }}
               </p>
             </el-form-item>
+            <el-form-item :label="t('density')">
+              <el-segmented
+                :model-value="tokens.density"
+                :options="densityOptions"
+                class="density-control"
+                @update:model-value="emitUpdate('density', $event)"
+              />
+            </el-form-item>
           </el-form>
         </section>
       </el-tab-pane>
@@ -183,7 +191,12 @@ import {
   type SassVariableCategory,
   type SassVariableDefinition,
 } from '../../../../packages/theme-builder/src/tokenCatalog'
-import type { ThemeTokens, TokenIssue } from '../../../../packages/theme-builder/src/tokens'
+import {
+  THEME_DENSITIES,
+  type ThemeDensity,
+  type ThemeTokens,
+  type TokenIssue,
+} from '../../../../packages/theme-builder/src/tokens'
 import { useI18n, type MessageKey } from '../i18n'
 
 interface ElementPlusMetadata {
@@ -224,6 +237,18 @@ const emit = defineEmits<{
 const activeTab = ref('guide')
 const activeSassTab = ref<SassVariableCategory>('core')
 const { t } = useI18n()
+const densityLabelKeys: Record<ThemeDensity, MessageKey> = {
+  compact: 'densityCompact',
+  default: 'densityDefault',
+  comfortable: 'densityComfortable',
+  large: 'densityLarge',
+}
+const densityOptions = computed(() =>
+  THEME_DENSITIES.map((density) => ({
+    label: t(densityLabelKeys[density]),
+    value: density,
+  })),
+)
 const sassVariables = computed(() => {
   const resolvedVariables = props.elementPlusMetadata?.variables ?? []
   return resolvedVariables.length > 0 ? resolvedVariables : [...SASS_VARIABLES]

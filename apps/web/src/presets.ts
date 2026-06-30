@@ -1,4 +1,4 @@
-import { cloneThemeTokens, DEFAULT_TOKENS } from '../../../packages/theme-builder/src/tokens'
+import { cloneThemeTokens, DEFAULT_TOKENS, type ThemeDensity } from '../../../packages/theme-builder/src/tokens'
 import vbenAdminTokens from '../../../examples/vben-admin.json'
 
 export interface ThemePreset {
@@ -2371,34 +2371,26 @@ const presetHtmlFontSizes: Record<string, string> = {
   'graphite-pro': '16px',
 }
 
-const typographySizeKeys = ['extraLarge', 'large', 'medium', 'base', 'small', 'extraSmall'] as const
-
-function pxToRem(value: unknown): unknown {
-  if (typeof value !== 'string') {
-    return value
-  }
-
-  const match = value.match(/^([0-9]+(?:\.[0-9]+)?)px$/)
-  if (!match) {
-    return value
-  }
-
-  const remValue = Number(match[1]) / 16
-  const normalized = Number.isInteger(remValue) ? String(remValue) : String(Number(remValue.toFixed(4)))
-  return `${normalized}rem`
+const presetDensities: Record<string, ThemeDensity> = {
+  'aura-blue': 'default',
+  'glass-aurora': 'comfortable',
+  'cupertino-minimal': 'comfortable',
+  'data-wall': 'large',
+  'neo-brutal': 'comfortable',
+  'clay-pop': 'comfortable',
+  'soft-neumorph': 'default',
+  'mono-editorial': 'comfortable',
+  'bento-mint': 'default',
+  'flat-candy': 'default',
+  'midnight-neon': 'comfortable',
+  'phantom-red': 'comfortable',
+  'vben-admin': 'default',
+  'emerald-console': 'default',
+  'rose-quartz': 'default',
+  'graphite-pro': 'default',
 }
 
-function normalizeTypographyScale(typography: Record<string, unknown>): Record<string, unknown> {
-  return typographySizeKeys.reduce(
-    (result, key) => ({
-      ...result,
-      [key]: pxToRem(result[key]),
-    }),
-    { ...typography },
-  )
-}
-
-function applyPresetTypographySettings(preset: ThemePreset): ThemePreset {
+function applyPresetDensitySettings(preset: ThemePreset): ThemePreset {
   const tokens = preset.tokens
   if (!tokens || typeof tokens !== 'object') {
     return preset
@@ -2412,8 +2404,9 @@ function applyPresetTypographySettings(preset: ThemePreset): ThemePreset {
     ...preset,
     tokens: {
       ...tokenObject,
+      density: presetDensities[preset.id] ?? 'default',
       typography: {
-        ...normalizeTypographyScale(typographyObject),
+        ...typographyObject,
         htmlFontSize: presetHtmlFontSizes[preset.id] ?? '16px',
       },
     },
@@ -4223,6 +4216,6 @@ export const themePresets: ThemePreset[] = [
       },
     },
   },
-].map(applyPresetTypographySettings)
+].map(applyPresetDensitySettings)
 
 export const defaultPresetId = themePresets[0]?.id ?? 'aura-blue'

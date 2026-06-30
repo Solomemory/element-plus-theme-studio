@@ -223,6 +223,14 @@ a {
   margin-bottom: 12px;
 }
 
+.density-control {
+  width: 100%;
+}
+
+.density-control .el-segmented__item {
+  min-width: 0;
+}
+
 .token-list {
   display: grid;
   gap: 12px;

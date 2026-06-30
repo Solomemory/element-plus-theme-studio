@@ -104,9 +104,9 @@ pnpm theme:build --tokens ./dist/tokens.json
 
 如果要在主题编辑器网页中继续编辑，点击“导入 JSON”，选择这个 \`tokens.json\` 即可。
 
-\`typography.htmlFontSize\` 会生成 \`html\` 根字号，并同步写入 \`--studio-root-font-size\` / \`--studio-html-font-size\`。typography 字号建议使用 \`rem\`，\`--studio-font-size-base\` / \`--font-size-base\` 会对应 \`typography.base\`。
+\`density\` 表示主题的语义化尺寸模式：\`compact\`、\`default\`、\`comfortable\` 或 \`large\`。它会影响 \`typography.htmlFontSize\`、Element Plus 字号 token 和组件高度 token。
 
-建议把 \`htmlFontSize\` 当成页面级密度基准：后台系统通常保持 \`16px\`，展示型主题可以使用 \`17px\`，数据大屏可以使用 \`18px\`。页面布局、自定义内容和 typography 字号适合跟随 \`rem\` 缩放；Element Plus 控件高度、边框、图标和细线细节通常继续保留 \`px\`，避免表单、表格和弹窗难以对齐。
+\`typography.htmlFontSize\` 仍然作为高级根字号 token 保留，并同步写入 \`--studio-root-font-size\` / \`--studio-html-font-size\`。\`--studio-font-size-base\` / \`--font-size-base\` 会对应 \`typography.base\`。Element Plus 字号、组件高度、边框和细线细节建议保持 \`px\`，\`rem\` 更适合放在业务布局或自定义内容 CSS 中。
 
 ## 自定义 CSS 覆盖
 

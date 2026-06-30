@@ -1,7 +1,9 @@
 import { computed, reactive } from 'vue'
 import {
   DEFAULT_TOKENS,
+  applyThemeDensity,
   cloneThemeTokens,
+  isThemeDensity,
   mergeThemeTokens,
   validateThemeTokens,
   type ThemeTokens,
@@ -17,6 +19,8 @@ export function useThemeStore() {
     if (!key) {
       if (section === 'name' || section === 'packageName' || section === 'elementPlusVersion') {
         tokens[section] = value
+      } else if (section === 'density' && isThemeDensity(value)) {
+        Object.assign(tokens, applyThemeDensity(tokens, value))
       }
       return
     }
